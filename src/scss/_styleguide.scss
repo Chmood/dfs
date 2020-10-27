@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////
+// STYLEGUIDE
+
+// Color blocks
+
+.styleguide-color-blocks {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -4px;
+	margin-bottom: calc(#{$gutter} - 4px);
+}
+
+.styleguide-color-block {
+	flex-basis: 128px;
+	min-height: 128px;
+	margin: 4px;
+	border: 2px solid $color-gray-darker;
+	font-size: 12px;
+}
+
+.styleguide-color-block__label {
+	padding: 2px 4px;
+	background-color: $color-gray-darker;
+	color: white;
+}
+
+// Site branding
+
+.site-header {
+	background-color: $color-primary;
+	color: white;
+
+	h1 {
+		margin-bottom: 0;
+	}
+}
+
+.site-footer {
+    background-color: $color-gray-lightest;
+}
+
+// Material shadows
+
+.styleguide-shadow-block {
+	padding: $gutter;
+	background-color: white;
+}
+
+// Buttons
+
+.styleguide-buttons {
+	.btn {
+		margin-bottom: $gutter-quarter;
+	}
+}
+
+// Icons
+
+.styleguide-icons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin: - $gutter-quarter;
+	margin-bottom: ($gutter - $gutter-quarter);
+
+	> * {
+		display: block;
+		margin: $gutter-quarter;
+		padding: 10px; // 10 + 24 + 10 = 44px
+		transition: all 0.25s;
+		background-color: white;
+		color: $color-gray-darker;
+	}
+
+	&.styleguide-icons--icon-set {
+
+		> * {
+			flex-basis: $gutter * 4;
+			padding: $gutter-half;
+			border: 1px solid $color-gray-lightest;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			&:hover { // Not working on a div, WTF
+				border-color: $color-primary;
+				background-color: $color-primary;
+				color: white;
+				@include shadow(2);
+				cursor: pointer;
+			}
+
+			> span {
+				display: block;
+				margin-top: $gutter-half;
+				font-size: $font-size-smaller;
+			}
+		}
+	}
+
+	&.styleguide-icons--dark {
+
+		> * {
+			background-color: $color-gray-darker;
+			color: white;
+		}
+	}
+}
+
+// Image test
+
+.styleguide-image-test {
+	margin-bottom: $gutter;
+}
+
+.styleguide-bg-image-test {
+	margin-bottom: $gutter;
+	width: 600px;
+	height: 200px;
+	background-image: url('/dist/img/logo-diatem.jpg');
+	margin: $gutter auto;
+}
+

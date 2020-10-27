@@ -1,0 +1,467 @@
+/* BUTTONS */
+
+@mixin btn($mods: "") {
+    @each $mod in $mods {
+
+        // BASE
+
+        @if $mod == "" {
+            // display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle; // For icon buttons (fix alignment bug when icon only)
+            text-transform: $btn-text-transform;
+            font-weight: $btn-font-weight;
+
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+
+            // min-height: 4rem; // 36
+            padding: 1.2rem;
+            border: none;
+            border-radius: $btn-border-radius;
+            color: $body-color-base;
+            background-color: transparent;
+
+            transition: all 0.25s;
+
+            &:not(:disabled) {
+                @include hocus {
+                    color: $body-color-base;
+                    @include shadow($btn-shadow-active);
+                }
+
+                &:active {
+                    &:not(.scroll-btn) {
+                        position: relative;
+                        top: 1px;
+                        left: 1px;
+                    }
+                }
+            }
+
+            &:disabled {
+                @include shadow(0);
+                opacity: 0.75;
+                cursor: not-allowed;
+            }
+        }
+
+        // LAYOUT
+
+        @else if $mod == "block" {
+            // display: block;
+            display: flex;
+            width: 100%;
+        }
+
+        @else if $mod == "round" {
+            border-radius: 100rem;
+        }
+
+        @else if $mod == "wrap" {
+            white-space: normal !important;
+        }
+
+        // SIZES
+
+        @else if $mod == "xs" {
+            padding: 0.8rem;
+            min-height: 2.8rem;
+            font-size: $font-size-smaller;
+        }
+
+        @else if $mod == "sm" {
+            padding: 1rem;
+            min-height: 3.4rem;
+            font-size: $font-size-small;
+        }
+
+        @else if $mod == "lg" {
+            padding: 1.4rem;
+            min-height: 4.8rem;
+            font-size: $font-size-big;
+        }
+
+        @else if $mod == "xl" {
+            padding: 1.6rem;
+            min-height: 5.6rem;
+            font-size: $font-size-bigger;
+        }
+
+        // COLORS
+
+        @else if $mod == "default" {
+            background-color: $color-gray-lightest;
+            color: $body-color-base;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-gray-lighter;
+                    color: black;
+                }
+
+                &:active {
+                    background-color: $color-gray-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "primary" {
+            background-color: $color-primary;
+            color: white;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-primary-light;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-primary-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "secondary" {
+            background-color: $color-secondary;
+            color: white;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-secondary-light;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-secondary-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "accent" {
+            background-color: $color-accent;
+            color: white;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-accent-light;
+                    color: white;
+                }
+    
+                &:active {
+                    background-color: $color-accent-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "black" {
+            background-color: black;
+            color: $color-gray-lighter;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    // background-color: $color-accent-dark;
+                    color: $color-gray-lightest;
+                }
+            }
+    
+            &:active {
+                background-color: $color-gray;
+            }
+        }
+
+        @else if $mod == "gray" {
+            background-color: $color-gray;
+            color: $color-gray-lightest;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-gray-light;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-gray-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "white" {
+            background-color: white;
+            color: $color-gray;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    // background-color: $color-accent-dark;
+                    color: $color-gray-darkest;
+                }
+
+                &:active {
+                    background-color: $color-gray-lightest;
+                }
+            }
+        }
+
+        @else if $mod == "caret" {
+            position: relative;
+            padding-left: $gutter;
+            padding-right: $gutter;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: $gutter;
+                @include triangle("right", currentColor, $gutter-eighth * 3);
+
+                opacity: 0;
+                transform: translate3d(0, -50%, 0);
+                transition: all 0.25s;
+            }
+
+            &:not(:disabled) {
+                @include hocus() {
+                    padding-left: $gutter-quarter * 3;
+                    padding-right: $gutter-quarter * 5;
+
+                    &::after {
+                        opacity: 1;
+                        transform: translate3d($gutter-quarter, -50%, 0);
+                    }
+                }
+            }
+        } @else {
+            @error '@mixin btn(): unknown modifier #{$mod}!';
+        }
+    }
+}
+
+// BUTTON CLASSES
+
+.btn {
+    @include btn();
+}
+
+// BUTTON SIZES
+
+.btn-xs {
+    @include btn("xs");
+}
+.btn-sm {
+    @include btn("sm");
+}
+.btn-lg {
+    @include btn("lg");
+}
+.btn-xl {
+    @include btn("xl");
+}
+
+// BUTTONS COLORS
+
+.btn-default {
+    @include btn("default");
+}
+
+.btn-primary {
+    @include btn("primary");
+}
+.btn-secondary {
+    @include btn("secondary");
+}
+.btn-accent {
+    @include btn("accent");
+}
+
+.btn-black {
+    @include btn("black");
+}
+.btn-gray {
+    @include btn("gray");
+}
+.btn-white {
+    @include btn("white");
+}
+
+// HOLLOW BUTTONS
+// TODO: into the mixin too!!!
+
+.btn-hollow {
+    background-color: transparent;
+    border: $btn-border-size-hollow solid;
+
+    &:not(:disabled) {
+        @include hocus() {
+            @include shadow(0);
+        }
+    }
+
+    &.btn-default {
+        color: $color-gray-light;
+        border-color: $color-gray-light;
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: $color-gray-light;
+                color: black;
+            }
+
+            &:active {
+                background-color: $color-gray-lightest;
+            }
+        }
+    }
+    &.btn-primary {
+        color: $color-primary;
+        border-color: $color-primary;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: $color-primary;
+                color: white;
+            }
+
+            &:active {
+                background-color: $color-primary-lightest;
+            }
+        }
+    }
+    &.btn-secondary {
+        color: $color-secondary;
+        border-color: $color-secondary;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: $color-secondary;
+                color: white;
+            }
+
+            &:active {
+                background-color: $color-secondary-lightest;
+            }
+        }
+    }
+    &.btn-accent {
+        color: $color-accent;
+        border-color: $color-accent;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: $color-accent;
+                color: white;
+            }
+
+            &:active {
+                background-color: $color-accent-lightest;
+            }
+        }
+    }
+    &.btn-black {
+        color: black;
+        border-color: black;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: black;
+                color: $color-gray-lighter;
+            }
+
+            &:active {
+                background-color: $color-gray;
+            }
+        }
+    }
+    &.btn-gray {
+        color: $color-gray;
+        border-color: $color-gray;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: $color-gray;
+                color: white;
+            }
+
+            &:active {
+                background-color: $color-gray-lightest;
+            }
+        }
+    }
+    &.btn-white {
+        color: white;
+        border-color: white;
+
+        &:not(:disabled) {
+            @include hocus() {
+                background-color: white;
+                color: $color-gray-darker;
+            }
+        }
+    }
+}
+
+// ROUNDED BUTTONS
+
+.btn-round {
+    @include btn("round");
+}
+
+// BLOCK BUTTONS
+
+.btn-block {
+    @include btn("block");
+}
+
+// WRAP BUTTONS (multiline)
+
+.btn-wrap {
+    @include btn("wrap");
+}
+
+// CARET BUTTONS
+
+.btn-caret {
+    @include btn("caret");
+}
+
+// Vertically space out multiple block buttons
+// .btn-block + .btn-block {
+//   margin-top: $gutter-quarter;
+// }
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    &.btn-block {
+        width: 100%;
+    }
+}
+
+// BASE BUTTON STYLE
+
+// TODO: too wide, breaks header navbar
+
+// button {
+//   @include btn();
+// }
+
+// BUTTON ICONS
+// May be not needed?
+
+.btn-icon {
+    // height: 1.6rem; // TODO: Magic value!
+    // vertical-align: middle;
+}
+
+// Prevents icon shrink with .btn-wrap and long content
+.btn {
+    .icon {
+        flex-shrink: 0;
+    }
+}

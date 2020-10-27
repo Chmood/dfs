@@ -1,0 +1,44 @@
+/* ICONS */
+
+svg {
+    // pointer-events: none; // 
+}
+
+// OUTER SVG
+
+/*svg*/.icon {
+    display: inline;
+
+    @each $key, $size in $icon-sizes {
+
+        $key-formatted: "";
+        @if $key == "md" {
+            $key-formatted: "";
+        } @else {
+            $key-formatted: ".icon-#{$key}";
+        }
+
+        &#{$key-formatted} {
+
+            // Allows size override with attributes in html
+            &:not([width]) { width: $size; }
+            &:not([height]) { height: $size; }
+    
+            &.icon--inline {
+                // Hacky baseline alignment
+                position: relative;
+                top: ($size / 6); // Magic value...
+            }
+        }
+    }
+}
+
+// INNER USE
+
+/*use*/[id^="icon-"] {
+	
+    // Inherit color
+	path {
+        fill: currentColor; // Only works filled path and no strokes at all
+	}
+}

@@ -1,0 +1,152 @@
+/*******************************************************************************
+ * lib/base/_colors.scss
+ * Depends on : nothing
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION VARIABLES
+
+$generate-color-helper-classes: true; // Generate helper classes?
+
+// Base palette
+$color-primary: #61C5E8 !default;
+$color-secondary: #ED6F30 !default;
+$color-accent: #80BC49 !default;
+$color-gray: #888 !default;
+
+// Shading factors
+$color-variation-ratio-base: 25% !default;
+$color-variation-ratio-more: 55% !default;
+$color-variation-ratio-most: 85% !default;
+
+// "Universal" colors
+$color-error: #dc3545 !default;
+$color-warning: #ffc107 !default;
+$color-info: #17a2b8 !default;
+$color-success: #28a745 !default;
+
+////////////////////////////////////////////////////////////////////////////////
+// COLOR SHADES COMPUTATION
+
+// Computed "automatic" color shades
+// It also computes gray scale
+
+// COLOR VARIABLES
+
+$color-primary-darkest: mix(black, $color-primary, $color-variation-ratio-most);
+$color-primary-darker: mix(black, $color-primary, $color-variation-ratio-more);
+$color-primary-dark: mix(black, $color-primary, $color-variation-ratio-base);
+$color-primary-light: mix(white, $color-primary, $color-variation-ratio-base);
+$color-primary-lighter: mix(white, $color-primary, $color-variation-ratio-more);
+$color-primary-lightest: mix(white, $color-primary, $color-variation-ratio-most);
+
+$color-secondary-darkest: mix(black, $color-secondary, $color-variation-ratio-most);
+$color-secondary-darker: mix(black, $color-secondary, $color-variation-ratio-more);
+$color-secondary-dark: mix(black, $color-secondary, $color-variation-ratio-base);
+$color-secondary-light: mix(white, $color-secondary, $color-variation-ratio-base);
+$color-secondary-lighter: mix(white, $color-secondary, $color-variation-ratio-more);
+$color-secondary-lightest: mix(white, $color-secondary,$color-variation-ratio-most);
+
+$color-accent-darkest: mix(black, $color-accent, $color-variation-ratio-most);
+$color-accent-darker: mix(black, $color-accent, $color-variation-ratio-more);
+$color-accent-dark: mix(black, $color-accent, $color-variation-ratio-base);
+$color-accent-light: mix(white, $color-accent, $color-variation-ratio-base);
+$color-accent-lighter: mix(white, $color-accent, $color-variation-ratio-more);
+$color-accent-lightest: mix(white, $color-accent, $color-variation-ratio-most);
+
+$color-gray-darkest: mix(black, $color-gray, $color-variation-ratio-most);
+$color-gray-darker: mix(black, $color-gray, $color-variation-ratio-more);
+$color-gray-dark: mix(black, $color-gray, $color-variation-ratio-base);
+$color-gray-light: mix(white, $color-gray, $color-variation-ratio-base);
+$color-gray-lighter: mix(white, $color-gray, $color-variation-ratio-more);
+$color-gray-lightest: mix(white, $color-gray, $color-variation-ratio-most);
+
+// COLOR HELPER CLASSES
+
+@if $generate-color-helper-classes {
+	
+	// COLOR CLASSES
+
+	.color-primary-darkest { color: $color-primary-darkest; }
+	.color-primary-darker { color: $color-primary-darker; }
+	.color-primary-dark { color: $color-primary-dark; }
+	.color-primary { color: $color-primary; }
+	.color-primary-light { color: $color-primary-light; }
+	.color-primary-lighter { color: $color-primary-lighter; }
+	.color-primary-lightest { color: $color-primary-lightest; }
+
+	.color-secondary-darkest { color: $color-secondary-darkest; }
+	.color-secondary-darker { color: $color-secondary-darker; }
+	.color-secondary-dark { color: $color-secondary-dark; }
+	.color-secondary { color: $color-secondary; }
+	.color-secondary-light { color: $color-secondary-light; }
+	.color-secondary-lighter { color: $color-secondary-lighter; }
+	.color-secondary-lightest { color: $color-secondary-lightest; }
+
+	.color-accent-darkest { color: $color-accent-darkest; }
+	.color-accent-darker { color: $color-accent-darker; }
+	.color-accent-dark { color: $color-accent-dark; }
+	.color-accent { color: $color-accent; }
+	.color-accent-light { color: $color-accent-light; }
+	.color-accent-lighter { color: $color-accent-lighter; }
+	.color-accent-lightest { color: $color-accent-lightest; }
+
+	.color-gray-lightest { color: $color-gray-lightest; }
+	.color-gray-lighter { color: $color-gray-lighter; }
+	.color-gray-light { color: $color-gray-light; }
+	.color-gray { color: $color-gray; }
+	.color-gray-dark { color: $color-gray-dark; }
+	.color-gray-darker { color: $color-gray-darker; }
+	.color-gray-darkest { color: $color-gray-darkest; }
+
+	.color-black { color: black; }
+	.color-white { color: white; }
+
+	.color-error { color: $color-error; }
+	.color-warning { color: $color-warning; }
+	.color-info { color: $color-info; }
+	.color-success { color: $color-success; }
+
+	// BACKGROUND COLOR CLASSES
+
+	.bg-primary-darkest { background-color: $color-primary-darkest; }
+	.bg-primary-darker { background-color: $color-primary-darker; }
+	.bg-primary-dark { background-color: $color-primary-dark; }
+	.bg-primary { background-color: $color-primary; }
+	.bg-primary-light { background-color: $color-primary-light; }
+	.bg-primary-lighter { background-color: $color-primary-lighter; }
+	.bg-primary-lightest { background-color: $color-primary-lightest; }
+
+	.bg-secondary-darkest { background-color: $color-secondary-darkest; }
+	.bg-secondary-darker { background-color: $color-secondary-darker; }
+	.bg-secondary-dark { background-color: $color-secondary-dark; }
+	.bg-secondary { background-color: $color-secondary; }
+	.bg-secondary-light { background-color: $color-secondary-light; }
+	.bg-secondary-lighter { background-color: $color-secondary-lighter; }
+	.bg-secondary-lightest { background-color: $color-secondary-lightest; }
+
+	.bg-accent-darkest { background-color: $color-accent-darkest; }
+	.bg-accent-darker { background-color: $color-accent-darker; }
+	.bg-accent-dark { background-color: $color-accent-dark; }
+	.bg-accent { background-color: $color-accent; }
+	.bg-accent-light { background-color: $color-accent-light; }
+	.bg-accent-lighter { background-color: $color-accent-lighter; }
+	.bg-accent-lightest { background-color: $color-accent-lightest; }
+
+	.bg-gray-lightest { background-color: $color-gray-lightest; }
+	.bg-gray-lighter { background-color: $color-gray-lighter; }
+	.bg-gray-light { background-color: $color-gray-light; }
+	.bg-gray { background-color: $color-gray; }
+	.bg-gray-dark { background-color: $color-gray-dark; }
+	.bg-gray-darker { background-color: $color-gray-darker; }
+	.bg-gray-darkest { background-color: $color-gray-darkest; }
+
+	.bg-black { background-color: black; }
+	.bg-white { background-color: white; }
+
+	.bg-error { background-color: $color-error; }
+	.bg-warning { background-color: $color-warning; }
+	.bg-info { background-color: $color-info; }
+	.bg-success { background-color: $color-success; }
+}
+

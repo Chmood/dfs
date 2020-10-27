@@ -1,0 +1,67 @@
+/*******************************************************************************
+ *******************************************************************************
+ * DFS - DIATEM FRONT-END SKELETON
+ * 
+ * main.scss
+ *******************************************************************************
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// CONFIGURATION VARIABLES
+// Note: variables definition need (and thus @import) the following core modules:
+// * "lib/base/colors"
+// * "lib/base/gutter"
+
+@import "variables"; // Edit this
+
+////////////////////////////////////////////////////////////////////////////////
+// NORMALIZE CSS
+
+@import "~normalize.css/normalize.css";
+
+// // @import "~choices.js/public/assets/styles/choices.css";
+// @import "~choices.js/src/styles/choices.scss";
+
+////////////////////////////////////////////////////////////////////////////////
+// DFS MAIN LIBRARY
+// Modify with caution!
+
+@import "lib/base/tools";
+@import "lib/base/shadows";
+
+// LAYOUT
+
+@import "lib/layout/unit-tools";
+@import "lib/layout/breakpoints";
+@import "lib/layout/layout";
+@import "lib/layout/header-sticky";
+@import "lib/layout/container";
+@import "lib/layout/grid";
+@import "lib/layout/modal";
+
+// BASE
+
+@import "lib/base/type";
+@import "lib/base/buttons";
+@import "lib/base/forms";
+@import "lib/base/icons";
+
+// DEBUG
+
+@import "lib/debug/debug"; // Not for production!
+
+// DEMO
+
+@import "styleguide"; // Not for production!
+
+////////////////////////////////////////////////////////////////////////////////
+// CUSTOM STYLES
+// Here comes your CSS...
+
+// COMPONENTS
+
+@import "app/components/foo";
+
+// PAGES
+
+@import "app/pages/foo";

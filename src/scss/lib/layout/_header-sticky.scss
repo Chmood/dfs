@@ -1,0 +1,15 @@
+/* STICKY HEADER */
+
+/*body*/.has-sticky-header:not(.is-landing-page) {
+    .site-header {
+        // Look Ma, no more padding-top on main content!
+        // See: https://medium.com/@DivyanshBatham/fixed-header-sticky-footer-with-dynamic-height-947f6669b981 
+        //      https://codepen.io/DivyanshBatham/pen/xvxybN
+
+        position: sticky; // Variable height header won't work with fixed position
+        top: 0;
+        width: 100%;
+        @include shadow(1);
+        z-index: 20000; // TODO: better!
+    }
+}

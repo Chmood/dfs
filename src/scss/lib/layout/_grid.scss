@@ -1,0 +1,155 @@
+////////////////////////////////////////////////////////////////////////////////
+// VARIABLES
+
+$n-children-max: 12 !default; // Max number of columns
+
+////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS
+
+// FRAKTION
+// How many % is one seventh? or three fifth?
+@function fraktion($t, $f: 1) {
+	@if $t > 0 {
+		@return (100% * $f / $t);
+	} @else {
+		@warn "ERROR in function fraktion(): fraction denominator must be an integer greater than zero";
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// ROW
+@mixin row($mods: "") {
+	@each $mod in $mods {
+		@if 	$mod == "" { 	    		display: flex; flex-wrap: wrap; 
+											margin: $gutter-half (-$gutter-half);
+			
+											& > * { @include column(); @include column("full"); }
+											& & { margin-top: -$gutter-half; margin-bottom: -$gutter-half; } // row in a row
+											& + & { margin-top: -$gutter-half; } // row after row
+		}
+		@else if $mod == "double-gutter" {	margin: $gutter (-$gutter);
+											& > * { @include column("double-gutter"); }
+											& & { margin-top: -$gutter; margin-bottom: -$gutter; }
+											& + & { margin-top: -$gutter; }
+		}
+		@else if $mod == "half-gutter" {	margin: $gutter-quarter (-$gutter-quarter);
+											& > * { @include column("half-gutter"); }
+											& & { margin-top: -$gutter-quarter; margin-bottom: -$gutter-quarter; }
+											& + & { margin-top: -$gutter-quarter; }
+		}
+		@else if $mod == "quarter-gutter" {	margin: $gutter-eighth (-$gutter-eighth);
+											& > * { @include column("quarter-gutter"); }
+											& & { margin-top: -$gutter-eighth; margin-bottom: -$gutter-eighth; }
+											& + & { margin-top: -$gutter-eighth; }
+		}
+		@else if $mod == "no-gutter" {		margin: 0;
+											& > * { @include column("no-gutter"); }
+											& + & { margin-top: 0; }
+		}
+		@else if $mod == "no-wrap" {			flex-wrap: nowrap;
+											& > * { @include column("no-wrap"); } }
+		@else if $mod == "auto-size" {		& > * { @include column("auto-size"); } }
+
+		@else if $mod == "fit" { 			& > * {	@include column("fit"); } }
+		@else if $mod == "fill" { 			& > *	{ @include column("fill"); } }
+		@else if $mod == "full" { 			& > * {	@include column("full"); } }
+		@else if $mod == "responsive" { 		& > * {	@include column("full"); } } // copy
+
+		@else if $mod == "vertical" {		flex-direction: column; }
+
+		@else if $mod == "top" { 			align-items: flex-start; }
+		@else if $mod == "middle" { 		align-items: center; }
+		@else if $mod == "bottom" { 		align-items: flex-end; }
+
+		@else if $mod == "left" { 			justify-content: flex-start; }
+		@else if $mod == "center" { 		justify-content: center; }
+		@else if $mod == "right" { 			justify-content: flex-end; }
+		@else if $mod == "space-between" { 	justify-content: space-between; }
+		@else if $mod == "space-around" { 	justify-content: space-around; }
+		@else if $mod == "space-evenly" { 	justify-content: space-evenly; }
+
+		@else {
+			@error "ERROR in mixin row(): unknown modifier `#{$mod}`";
+		}
+	}
+}
+
+// COL
+@mixin column($mods: "") {
+	@each $mod in $mods {
+
+		@if 	$mod == "" { 				padding: $gutter-half; }
+		@else if $mod == "double-gutter" { 	padding: $gutter; }
+		@else if $mod == "half-gutter" { 	padding: $gutter-quarter; }
+		@else if $mod == "quarter-gutter" { padding: $gutter-eighth; }
+		@else if $mod == "no-gutter" { 		padding: 0; }
+		@else if $mod == "no-wrap" { 		overflow-x: hidden; }
+		@else if $mod == "auto-size" { 		flex-basis: auto; flex-grow: 1; }
+
+		@else if $mod == "top" { 			align-self: flex-start; }
+		@else if $mod == "middle" { 		align-self: center; }
+		@else if $mod == "bottom" { 		align-self: flex-end; }
+		@else if $mod == "fit" { 			flex-grow: 0; }	
+		@else if $mod == "fill" { 			flex-grow: 1; }
+		@else if $mod == "full" { 			flex-basis: 100%; }	
+
+		@else {
+			@error "ERROR in mixin column(): unknown modifier `#{$mod}`";
+		}
+	}
+}
+
+// COLSIZE
+@mixin colSize($total, $size: 1) {
+	flex-basis: fraktion($total, $size);
+	max-width: fraktion($total, $size); // Prevents overflow
+}
+
+@mixin col($bp, $size) {
+	@if $bp == "min" {
+		
+		@include colSize($n-children-max, $size);
+
+	} @else if map-has-key($breakpoints, $bp) {
+
+		@include bp($bp) { 
+			@include colSize($n-children-max, $size);
+		}
+
+	} @else {
+    @warn 'ERROR in mixin col(): unknown breakpoint #{$bp}';
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+/* ROW */
+.row { @include row(); }
+
+$mods: "vertical", "double-gutter", "half-gutter", "quarter-gutter", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
+
+@each $mod in $mods {
+	.row--#{$mod} { @include row($mod); }
+}
+
+/* COL */
+.col { @include column(); }
+
+$mods: "top", "middle", "bottom", "fit", "fill", "full";
+
+@each $mod in $mods {
+	.col--#{$mod} { @include column($mod); }
+}
+
+@for $i from 1 through $n-children-max {
+	.col-#{$i} { @include colSize($n-children-max, $i); }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+	@for $i from 1 through $n-children-max {
+		.col-#{$breakpoint-name}-#{$i} { @include col($breakpoint-name, $i); }
+	}
+}

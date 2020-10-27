@@ -1,0 +1,211 @@
+/*******************************************************************************
+ * lib/base/_type.scss
+ * Depends on : gutter (and breakpoints, unit-tools)
+ ******************************************************************************/
+
+// GOOGLE FONTS CDN
+
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,700");
+
+////////////////////////////////////////////////////////////////////////////////
+/* TYPE */
+
+// HTML & BODY BASE
+
+html {
+    
+    // GLOBAL ZOOM
+    @if not $use-global-zoom {
+        // Define the root fontsize, aka "one rem"
+        // We set it to 10px by default (easy to compute from px values)
+        font-size: 10 / 16 * 100%; // target size (10) / browser default size (16) = 62.5%
+
+    } @else {
+        // Use $breakpoints-pixels-per-rem map
+        // Alter px/rem ratio depending on breakpoint
+        @each $breakpoint-name, $breakpoint-width in $breakpoints {
+            @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
+                @include bp($breakpoint-name) {
+                    $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+                    font-size: $pxPerRem / 16 * 100%; // target size / default size
+                }
+            } @else {
+                @error 'Global zoom: no $pixels-per-rem value for breakpoint #{$breakpoint-name}!';
+            }
+        }
+    }
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    background-color: $body-bg-color-base;
+    color: $body-color-base;
+}
+
+@mixin reset-list() {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+// DEFAULT TYPE
+
+// Margin bottom
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p,
+ul,
+blockquote,
+cite,
+pre {
+    margin-top: 0;
+    margin-bottom: $gutter-half;
+}
+
+// PARAGRAPHS
+
+p {
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
+}
+
+hr {
+    margin-bottom: $gutter;
+}
+
+// LINKS
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    transition: all 0.25s;
+
+    @include hocus() {
+        color: $link-color-active;
+    }
+}
+
+// HEADINGS
+
+// TODO heading vars: font-style, text-transform
+
+// Dynamic heading properties list
+$headings-props: ("font-size", "font-weight", "font-family", "line-height", "margin-bottom");
+
+// Heading mixin
+@mixin h($n) {
+    $mixin-error-header: "ERROR in mixin h():";
+
+    // Does the H level exists?
+    @if map-has-key($headings, "h#{$n}") {
+        $h: map-get($headings, "h#{$n}");
+
+        @each $prop in $headings-props {
+            // Does the H level has prop?
+            @if map-has-key($h, $prop) {
+                // Set prop
+                #{$prop}: map-get($h, $prop);
+            } @else {
+                // H level hasn't prop, search in default...
+                $h: map-get($headings, "default");
+
+                // Does the default level has prop?
+                @if map-has-key($h, $prop) {
+                    // Set prop
+                    #{$prop}: map-get($h, $prop);
+                } @else {
+                    @error '#{$mixin-error-header} unknown h#{$n} property #{$prop}';
+                }
+            }
+        }
+    } @else {
+        // H level doesn't exist
+        $h: map-get($headings, "default");
+
+        @each $prop in $headings-props {
+            @if map-has-key($h, $prop) {
+                // Set prop
+                #{$prop}: map-get($h, $prop);
+            } @else {
+                @error '#{$mixin-error-header} unknown default property #{$prop}';
+            }
+        }
+        // @error '#{$mixin-error-header}  unknown heading level #{$n}';
+    }
+}
+
+// Generate headings style
+@for $n from 1 through 6 {
+    h#{$n},
+    .h#{$n} {
+        @include h($n);
+    }
+}
+
+// BLOCKQUOTES
+
+blockquote {
+    margin-left: 0;
+    padding-left: $gutter-half;
+
+    > p {
+        font-family: $font-family-serif;
+        font-style: italic;
+        margin-bottom: $gutter-half;
+        text-indent: -$gutter / 3;
+
+        &::before {
+            content: "“";
+        }
+
+        &::after {
+            content: "”";
+        }
+    }
+
+    > cite {
+        display: block;
+        margin-bottom: $gutter;
+        font-size: $font-size-small;
+        font-style: normal;
+    }
+}
+
+// CODE
+
+// Monospace elements
+pre,
+code {
+    font-family: $font-family-monospace;
+    background-color: $body-color-base;
+    border-radius: $code-border-radius;
+}
+
+code {
+    display: inline-block;
+    padding-left: $gutter-quarter;
+    padding-right: $gutter-quarter;
+    color: white;
+}
+
+pre {
+    padding: $gutter-half;
+    overflow-x: auto;
+
+    > code {
+        padding: 0;
+    }
+}

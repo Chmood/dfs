@@ -1,0 +1,94 @@
+// Box model
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Full-height content
+
+html {
+    min-height: 100vh;
+}
+
+body,
+.site-wrapper {
+    min-height: 100vh;
+}
+
+// Sticky footer
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-body {
+    flex-grow: 1;
+}
+
+// Prevent horizontal scrollbar
+
+body {
+    overflow-x: hidden;
+}
+
+// Responsive images
+
+img {
+    display: block;
+    // @include h-margin(auto);
+    max-width: 100%;
+}
+
+// Hide inline SVG sprites
+
+#svg-sprites {
+    display: none;
+}
+
+// HEADER and FOOTER
+
+.site-header,
+.site-footer {}
+
+// Header
+
+.section--pre-header {
+    @include v-padding($pre-header-v-padding);
+    background-color: $pre-header-bg-color;
+    color: $pre-header-color;
+}
+
+.section--header {
+    @include v-padding($header-v-padding);
+    background-color: $header-bg-color;
+    color: $header-color;
+}
+
+.section--post-header {
+    @include v-padding($post-header-v-padding);
+    background-color: $post-header-bg-color;
+    color: $post-header-color;
+}
+
+// Footer
+
+.section--pre-footer {
+    @include v-padding($pre-footer-v-padding);
+    background-color: $pre-footer-bg-color;
+    color: $pre-footer-color;
+}
+
+.section--footer {
+    @include v-padding($footer-v-padding);
+    background-color: $footer-bg-color;
+    color: $footer-color;
+}
+
+.section--post-footer {
+    @include v-padding($post-footer-v-padding);
+    background-color: $post-footer-bg-color;
+    color: $post-footer-color;
+}

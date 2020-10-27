@@ -1,0 +1,96 @@
+// MODAL
+
+.modal {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, calc(-50vh - 100%), 0);
+    max-width: calc(100vw - #{$gutter});
+    max-height: calc(100vh - #{$gutter});
+    border: none; // Reset default style
+    padding: 0; // Reset default style
+    overflow: hidden;
+    transition: transform 0.5s;
+
+    @include bp('xs') {
+        max-width: calc(100vw - #{$gutter-double});
+        max-height: calc(100vh - #{$gutter-double});
+    }
+
+    @include bp('sm') {
+        max-width: 64rem;
+        max-height: 75vh;
+    }
+
+    &[open],
+    /*body*/.has-modal & {
+        transform: translate3d(-50%, -50%, 0);
+        @include shadow(5);
+    }
+}
+
+.modal__header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.modal__title {
+    flex-grow: 1;
+    padding: $gutter-half;
+
+    &.h3 {
+        margin-bottom: 0;
+    }
+}
+
+.modal__footer {
+    padding: $gutter-half;
+    text-align: center;
+}
+
+.modal__body {
+    padding: $gutter-half;
+    overflow: auto;
+}
+
+// OVERLAY
+
+// No page scrolling when overlay is active
+/*body*/.has-overlay {
+    overflow-y: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    // background-image: repeating-linear-gradient(
+    //         45deg,
+    //         transparent,
+    //         transparent 3px,
+    //         rgba(0, 0, 0, 0.5) 3px,
+    //         rgba(0, 0, 0, 0.5) 6px
+    //     ),
+    //     linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
+    background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 6px,
+            rgba(0, 0, 0, 0.125) 6px,
+            rgba(0, 0, 0, 0.125) 12px
+        );
+
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.25s;
+    backdrop-filter: blur(4px);
+
+    /*body*/.has-overlay & {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
