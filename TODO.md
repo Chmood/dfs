@@ -25,7 +25,7 @@
 
 - [ ] **JS**
   - Fichier de config pour eslint (à définir ensemble)
-  - Utiliser jQuery ? (Select2)
+  - Utiliser jQuery ? (pour Select2 par exemple)
   - _COMPONENTS_
     - `ajax.js` : utiliser axios ? Ou juste fetch ?
     - Porter `tabs.js` et `toggler.js`

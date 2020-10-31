@@ -136,28 +136,26 @@ $use-global-zoom: false !default;
 // HEADINGS
 
 $headings: (
-    // Default heading
-    "default":
-        (
-            "font-size": $font-size-base,
-            "font-weight": $font-weight-bold,
-            "font-family": $font-family-sans-serif,
-            "line-height": $line-height-small,
-            "margin-bottom": $gutter / 2,
-        ),
-    // Headings override
-    "h1":
-        (
-            "font-size": $font-size-biggest,
-            "font-weight": $font-weight-semibold,
-            "line-height": $line-height-smallest,
-            "margin-bottom": $gutter,
-        ),
+    "default": (
+        "font-size": $font-size-base,
+        "font-weight": $font-weight-bold,
+        "font-family": $font-family-sans-serif,
+        "text-transform": none,
+        "line-height": $line-height-small,
+        "margin-bottom": $gutter-half,
+    ),
+    "h1": (
+        "font-size": $font-size-biggest,
+        "font-weight": $font-weight-semibold,
+        "line-height": $line-height-smallest,
+        "margin-bottom": $gutter,
+    ),
     "h2": (
         "font-size": $font-size-bigger,
         "font-weight": $font-weight-light,
         "line-height": $line-height-smaller,
-        "margin-bottom": $gutter * 1.5 / 2,
+        "margin-bottom": $gutter * 3 / 4,
+        "text-transform": uppercase,
     ),
     "h3": (
         "font-size": floor($font-size-base * 1.35 * 10) / 10,
@@ -167,13 +165,11 @@ $headings: (
     "h4": (
         "font-size": $font-size-big,
         "font-weight": $font-weight-normal,
-        ),
-    // "h5": (),
-    "h6":
-        (
-            "font-size": $font-size-small,
-            "font-weight": $font-weight-normal,
-        )
+    ),
+    "h6": (
+        "font-size": $font-size-small,
+        "font-weight": $font-weight-normal,
+    )
 ) !default;
 
 // Border radius
@@ -220,8 +216,6 @@ $btn-border-radius: $border-radius-base !default;
 
 $btn-border-size-hollow: 2px !default;
 $btn-shadow-active: 1 !default; // Refers to @mixing shadow() parameter (from 0 to 5)
-
-$scroll-btn-size: $gutter * 2 !default;
 
 // CODE
 

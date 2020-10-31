@@ -101,10 +101,8 @@ a {
 
 // HEADINGS
 
-// TODO heading vars: font-style, text-transform
-
 // Dynamic heading properties list
-$headings-props: ("font-size", "font-weight", "font-family", "line-height", "margin-bottom");
+$headings-props: ("font-size", "font-weight", "font-family", "text-transform", "line-height", "margin-bottom");
 
 // Heading mixin
 @mixin h($n) {
@@ -121,17 +119,18 @@ $headings-props: ("font-size", "font-weight", "font-family", "line-height", "mar
                 #{$prop}: map-get($h, $prop);
             } @else {
                 // H level hasn't prop, search in default...
-                $h: map-get($headings, "default");
-
+                $hd: map-get($headings, "default");
+                
                 // Does the default level has prop?
-                @if map-has-key($h, $prop) {
+                @if map-has-key($hd, $prop) {
                     // Set prop
-                    #{$prop}: map-get($h, $prop);
+                    #{$prop}: map-get($hd, $prop);
                 } @else {
                     @error '#{$mixin-error-header} unknown h#{$n} property #{$prop}';
                 }
             }
         }
+
     } @else {
         // H level doesn't exist
         $h: map-get($headings, "default");
@@ -144,7 +143,7 @@ $headings-props: ("font-size", "font-weight", "font-family", "line-height", "mar
                 @error '#{$mixin-error-header} unknown default property #{$prop}';
             }
         }
-        // @error '#{$mixin-error-header}  unknown heading level #{$n}';
+        // @error '#{$mixin-error-header} unknown heading level #{$n}';
     }
 }
 
