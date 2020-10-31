@@ -230,26 +230,30 @@ $code-border-radius: $border-radius-base !default;
 // HEADER AND FOOTER
 
 // Header
+$pre-header-v-padding: $gutter-eighth !default;
 $pre-header-bg-color: $color-gray-darker !default;
 $pre-header-color: white !default;
-$pre-header-v-padding: $gutter-eighth !default;
-$header-bg-color: $color-primary !default;
-$header-color: white !default;
+
 $header-v-padding: $gutter-half !default;
+$header-bg-color: $color-gray-darker !default;
+$header-color: white !default;
+
+$post-header-v-padding: $gutter-eighth !default;
 $post-header-bg-color: $color-gray-lightest !default;
 $post-header-color: $color-gray-dark !default;
-$post-header-v-padding: $gutter-eighth !default;
 
 // Footer
+$pre-footer-v-padding: $gutter-eighth !default;
 $pre-footer-bg-color: $color-gray-lightest !default;
 $pre-footer-color: $color-gray-dark !default;
-$pre-footer-v-padding: $gutter-eighth !default;
+
+$footer-v-padding: $gutter !default;
 $footer-bg-color: $color-gray-darker !default;
 $footer-color: white !default;
-$footer-v-padding: $gutter !default;
-$post-footer-bg-color: $color-gray-lightest !default;
-$post-footer-color: $color-gray-dark !default;
+
 $post-footer-v-padding: $gutter-half !default;
+$post-footer-bg-color: $color-gray-darker !default;
+$post-footer-color: white !default;
 
 // CHOICES JS (???)
 

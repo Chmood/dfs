@@ -24,21 +24,6 @@
 	color: white;
 }
 
-// Site branding
-
-.site-header {
-	background-color: $color-primary;
-	color: white;
-
-	h1 {
-		margin-bottom: 0;
-	}
-}
-
-.site-footer {
-    background-color: $color-gray-lightest;
-}
-
 // Material shadows
 
 .styleguide-shadow-block {
@@ -122,3 +107,97 @@
 	margin: $gutter auto;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// STYLEGUIDE PAGE LAYOUT
+
+// NAVBAR
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+// Logo
+
+.navbar-logo {
+	display: block;
+	width: 15rem;
+	margin-right: $gutter;
+}
+
+// Menu
+
+.navbar-menu {
+	flex-grow: 1;
+
+	/*ul*/.menu {
+		@include reset-list();
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	/*li*/.menu-item {
+		padding: $gutter-quarter;
+
+		&:not(:last-child) {
+			margin-right: $gutter-quarter;
+		}
+	}
+	
+	/*a*/.menu-item-link {
+		position: relative;
+		color: $color-secondary;
+
+
+		&::after {
+			content: "";
+			position: absolute;
+			display: block;
+			height: 2px;
+			width: 100%;
+			bottom: -0.4rem;
+			background-color: currentColor;
+			transform-origin: 0 0;
+			transform: scaleX(0);
+			transition: all 0.25s;
+		}
+
+		@include hocus() {
+			color: $color-secondary;
+
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+	}
+}
+
+// Hash Tag Links Padding
+// See: https://css-tricks.com/hash-tag-links-padding/
+
+h2::before { 
+	$site-header-height: 8.9rem; // Magic value!
+
+	display: block; 
+	content: " "; 
+	margin-top: -($site-header-height + $gutter); 
+	height: ($site-header-height + $gutter); 
+	visibility: hidden; 
+	pointer-events: none;
+}
+
+// FOOTER
+
+.footer-made-by {
+	color: $color-gray-light;
+	text-align: center;
+}
+
+.footer-made-by__link {
+	color: $color-gray-light;
+
+	@include hocus() {
+		color: white;
+	}
+}

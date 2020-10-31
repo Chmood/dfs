@@ -35,7 +35,10 @@ svg {
 
 // INNER USE
 
-/*use*/[id^="icon-"] {
+/*use*/[id^="icon-"],
+/*use*/[id*="--no-color"],
+// Warning: class won't work here, use ID instead!
+/*use*/.svg-inherit-color {
 	
     // Inherit color
 	path {
