@@ -1,7 +1,9 @@
 // MODAL
 
 .modal {
-    display: block;
+    z-index: 40000;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -10,21 +12,37 @@
     max-height: calc(100vh - #{$gutter});
     border: none; // Reset default style
     padding: 0; // Reset default style
+    margin: 0; // Reset "auto" default style
     overflow: hidden;
     transition: transform 0.5s;
 
     @include bp('xs') {
         max-width: calc(100vw - #{$gutter-double});
         max-height: calc(100vh - #{$gutter-double});
+
+        &.modal-sm {
+            max-width: 42rem;
+        }
     }
 
     @include bp('sm') {
-        max-width: 64rem;
         max-height: 75vh;
+        max-width: 64rem;
+
+        &:not(.modal-sm) {
+            max-width: 64rem;
+        }
     }
 
-    &[open],
-    /*body*/.has-modal & {
+    @include bp('md') {
+
+        &.modal-lg {
+            max-width: 96rem;
+        }
+    }
+
+    // Opened modal
+    /*body*/.has-modal &[open] {
         transform: translate3d(-50%, -50%, 0);
         @include shadow(5);
     }
@@ -37,20 +55,25 @@
 
 .modal__title {
     flex-grow: 1;
-    padding: $gutter-half;
+    padding: $gutter;
 
     &.h3 {
         margin-bottom: 0;
     }
 }
 
+.modal__btn-close {
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
 .modal__footer {
-    padding: $gutter-half;
+    padding: $gutter;
     text-align: center;
 }
 
 .modal__body {
-    padding: $gutter-half;
+    @include h-padding($gutter);
     overflow: auto;
 }
 
@@ -62,35 +85,28 @@
 }
 
 .overlay {
+    z-index: 30000;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    // background-image: repeating-linear-gradient(
-    //         45deg,
-    //         transparent,
-    //         transparent 3px,
-    //         rgba(0, 0, 0, 0.5) 3px,
-    //         rgba(0, 0, 0, 0.5) 6px
-    //     ),
-    //     linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25));
+    background-color: rgba(0, 0, 0, 0.5);
     background-image: repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 6px,
-            rgba(0, 0, 0, 0.125) 6px,
-            rgba(0, 0, 0, 0.125) 12px
-        );
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.125) 2px,
+        rgba(0, 0, 0, 0.125) 4px
+    );
 
-    transform: translate3d(0, -100%, 0);
     opacity: 0;
     transition: opacity 0.5s, transform 0.25s;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
+    pointer-events: none; // Let events pass through
 
     /*body*/.has-overlay & {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        pointer-events: initial; // Allows click on overlay for closing modal
     }
 }

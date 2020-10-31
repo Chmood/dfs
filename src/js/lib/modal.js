@@ -6,56 +6,55 @@ const modal = (() => {
 
     // MODAL AND OVERLAY
 
-    // Open and close
+    // DOM elements
 
     const 
-        $modalToggle = document.getElementById('toggle-modal'),
-        $modal = document.getElementById('modal'),
-        $modalCloseElements = $modal.querySelectorAll('[data-modal="close"]'),
-        $overlay = document.getElementById('overlay'),
-        $body = document.body
+    $modalToggles = document.querySelectorAll('[data-toggle="modal"]'),
+    $modals = document.querySelectorAll('.modal'),
+    $overlay = document.getElementById('overlay'),
+    $body = document.body
+    
+    // Open and close functions
 
-    const openModal = () => {
+    const openModal = ($modal) => {
         $body.classList.add('has-overlay')
         $body.classList.add('has-modal')
         $modal.setAttribute('open', '')
     }
 
-    const closeModal = () => {
+    const closeModal = ($modal) => {
         $body.classList.remove('has-overlay')
         $body.classList.remove('has-modal')
         $modal.removeAttribute('open')
     }
 
-    $modalToggle.addEventListener('click', openModal)
-    $modalCloseElements.forEach(element => element.addEventListener('click', closeModal));
-    $overlay.addEventListener('click', closeModal)
+    // Opening with toggles
 
-    // Content scrolling
-    // Set modal body max-height, depending on variable modal header and footer heights
+    $modalToggles.forEach($toggle => $toggle.addEventListener('click', () => {
+        const $targetSelector = $toggle.getAttribute('data-target')
 
-    const 
-        $modalHeader = $modal.querySelector('.modal__header'),
-        $modalFooter = $modal.querySelector('.modal__footer'),
-        $modalBody = $modal.querySelector('.modal__body')
+        if ($targetSelector) {
+            const $target = document.querySelector($targetSelector)
 
-    const setModalBodyMaxHeight = () => {
-        $modalBody.style.maxHeight = 'none'
+            if ($target) {
+                openModal($target)
+            }
+        }
+    }));
 
-        const
-            modalHeight = $modal.offsetHeight,
-            modalHeaderHeight = $modalHeader.offsetHeight,
-            modalFooterHeight = $modalFooter.offsetHeight,
-            modalBodyHeight = modalHeight - (modalHeaderHeight + modalFooterHeight)
+    // Closing a single modal with close buttons
+    $modals.forEach($modal => {
+        const $modalCloseElements = $modal.querySelectorAll('[data-modal="close"]')
 
-        $modalBody.style.maxHeight = modalBodyHeight
-    }
+        $modalCloseElements.forEach($modalCloseElement => $modalCloseElement.addEventListener('click', () => {
+            closeModal($modal)
+        }))
+    })
 
-    window.onresize = () => {
-        setModalBodyMaxHeight()
-    }
-
-    setModalBodyMaxHeight() // Initial setup
+    // Closing all modals when overlay is clicked
+    $overlay.addEventListener('click', () => {
+        $modals.forEach($modal => closeModal($modal))
+    })
 
     console.log("lib/modal.js is loaded")
 })()

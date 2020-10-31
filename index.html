@@ -1391,7 +1391,11 @@ architecto itaque consequatur beatae.<!--
                     <h2>Modal and overlay</h2>
                     <p><em>Source code: <code>scss/base/_modal.scss</code> and <code>js/lib/modal.js</code></em></p>
     
-                    <button class="btn btn-primary" id="toggle-modal">Open modal!</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal_1">Small modal</button>
+    
+                    <button class="btn btn-secondary" data-toggle="modal" data-target="#modal_2">Default modal</button>
+    
+                    <button class="btn btn-accent" data-toggle="modal" data-target="#modal_3">Large modal</button>
     
                     <hr>
     
@@ -1452,10 +1456,35 @@ architecto itaque consequatur beatae.<!--
     <!-- OVERLAY AND MODAL -->
     <div class="overlay" id="overlay"></div>
 
-    <dialog class="modal" id="modal">
+    <dialog class="modal modal-sm" id="modal_1">
         <div class="modal__header">
-            <div class="modal__title h3">Modal title</div>
-            <button class="modal__btn-close btn" data-modal="close">X</button>
+            <div class="modal__title h3">Small Modal title</div>
+            <button class="modal__btn-close btn btn-round" data-modal="close">
+                <svg class="icon icon-lg" viewBox="0 0 24 24">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+                <span class="sr-only">Close</span>
+            </button>
+        </div>
+        <div class="modal__body">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
+                accusantium reiciendis, voluptas, consequuntur.</p>
+        </div>
+        <div class="modal__footer">
+            <button class="btn" data-modal="close">Decline</button>
+            <button class="btn btn-primary" data-modal="close">Accept</button>
+        </div>
+    </dialog>
+
+    <dialog class="modal" id="modal_2">
+        <div class="modal__header">
+            <div class="modal__title h3">Default modal title</div>
+            <button class="modal__btn-close btn btn-round" data-modal="close">
+                <svg class="icon icon-lg" viewBox="0 0 24 24">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+                <span class="sr-only">Close</span>
+            </button>
         </div>
         <div class="modal__body">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
@@ -1478,8 +1507,35 @@ architecto itaque consequatur beatae.<!--
                 necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
         </div>
         <div class="modal__footer">
-            <button class="btn btn-primary" data-modal="close">Accept</button>
             <button class="btn" data-modal="close">Decline</button>
+            <button class="btn btn-primary" data-modal="close">Accept</button>
+        </div>
+    </dialog>
+
+    <dialog class="modal modal-lg" id="modal_3">
+        <div class="modal__header">
+            <div class="modal__title h3">Large modal title</div>
+            <button class="modal__btn-close btn btn-round" data-modal="close">
+                <svg class="icon icon-lg" viewBox="0 0 24 24">
+                    <use xlink:href="#icon-close"></use>
+                </svg>
+                <span class="sr-only">Close</span>
+            </button>
+        </div>
+        <div class="modal__body">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
+                accusantium reiciendis, voluptas, consequuntur assumenda aliquid quos vitae officia delectus
+                necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
+                accusantium reiciendis, voluptas, consequuntur assumenda aliquid quos vitae officia delectus
+                necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
+                accusantium reiciendis, voluptas, consequuntur assumenda aliquid quos vitae officia delectus
+                necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
+        </div>
+        <div class="modal__footer">
+            <button class="btn" data-modal="close">Decline</button>
+            <button class="btn btn-primary" data-modal="close">Accept</button>
         </div>
     </dialog>
 
