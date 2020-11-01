@@ -431,6 +431,7 @@ button[type='submit']*/ {
 
 .input-before,
 .input-after {
+    flex-shrink: 0;
 
     &:not(.btn):not(a) {
         white-space: nowrap;

@@ -105,6 +105,9 @@ $font-size-small: (floor($font-size-base * 0.9 * 10) / 10) !default;
 $font-size-big: (floor($font-size-base * 1.25 * 10) / 10) !default;
 $font-size-bigger: (floor($font-size-base * 1.5 * 10) / 10) !default;
 $font-size-biggest: (floor($font-size-base * 2 * 10) / 10) !default;
+$font-size-large: (floor($font-size-base * 2.5 * 10) / 10) !default;
+$font-size-larger: (floor($font-size-base * 3 * 10) / 10) !default;
+$font-size-largest: (floor($font-size-base * 4 * 10) / 10) !default;
 
 // Line height
 $line-height-base: 1.5 !default;
@@ -145,20 +148,20 @@ $headings: (
         "margin-bottom": $gutter-half,
     ),
     "h1": (
-        "font-size": $font-size-biggest,
+        "font-size": $font-size-large,
         "font-weight": $font-weight-semibold,
         "line-height": $line-height-smallest,
-        "margin-bottom": $gutter,
+        "margin-bottom": $gutter-and-half,
     ),
     "h2": (
-        "font-size": $font-size-bigger,
+        "font-size": $font-size-biggest,
         "font-weight": $font-weight-light,
         "line-height": $line-height-smaller,
-        "margin-bottom": $gutter * 3 / 4,
+        "margin-bottom": $gutter,
         "text-transform": uppercase,
     ),
     "h3": (
-        "font-size": floor($font-size-base * 1.35 * 10) / 10,
+        "font-size": $font-size-bigger,
         "font-weight": $font-weight-semibold,
         "line-height": $line-height-smaller,
     ),

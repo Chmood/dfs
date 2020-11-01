@@ -1,7 +1,6 @@
 # TODO
 
 - [ ] **GLOBAL**
-  - Fichier .editorconfig
   - Exemples de code + Prism.js dans le styleguide
 
 - [ ] **BUILD**
@@ -10,13 +9,15 @@
 - [ ] **CSS**
   - _COMPONENTS_
     - Formulaires (`_forms.scss`) (WIP...)
-      - radio / checkbox full SVG
-    - `_buttons.scss` : refactor du modifieur `hollow` (semble complexe)
+      - radio / checkbox full SVG [???]
+    - `_buttons.scss` : refactor du modifieur `hollow` (semble complexe) [???]
     - LAYOUT :
-      - `navbar` (mobile and desktop) ???
+      - `navbar` (mobile and desktop) [???]
       - `fixed-ratio`
       - `capped-width` (aka `max-width-md`)
     - MISC
+      - z-index scale
+      - new color shades : 'lighty' and 'darky' (9 shades instead of 7) [???]
 
 - [ ] **JS**
   - Fichier de config pour eslint (à définir ensemble)
@@ -39,7 +40,6 @@ bootstrap.min.css: 145kB
 
 * reboot.css (comes after normalize.css, improves element base styles)
 * breakpoints media queries for "min", "max", "only" and "range"
-* z-index scale
 * grid & layout:
   * same-sizing columns: (ex: `.col { flex-basis: 0; flex-grow: 1; }`)
   * fixed-sizing columns: flex-basis + max-width (+ flex-grow: 0;) (ex: `.col-6`)

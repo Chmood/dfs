@@ -33,6 +33,7 @@
 
             &:not(:disabled) {
                 @include hocus {
+                    outline: none; // Reset links default focus style
                     color: $body-color-base;
                     @include shadow($btn-shadow-active);
                 }
