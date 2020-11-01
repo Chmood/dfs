@@ -9,7 +9,7 @@
 TODO:
     - hash in filenames (production cachebusting)
     - multiple bundles (ex: "vendor")
-    - imagemin / decompress throws 12 severe secity warnings (see: https://github.com/kevva/decompress/pull/73)
+    - imagemin / decompress throws 12 severe security warnings (see: https://github.com/kevva/decompress/pull/73)
  */
 
 const
@@ -223,12 +223,10 @@ module.exports = {
         // Optimize images
         // Make sure that the plugin is after any plugins that add images (like "copy-webpack-plugin")
 
-        new ImageminPlugin(
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                // disable: ENV !== 'production', // Disable during development
-            }
-        ),
+        new ImageminPlugin({
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            // disable: ENV !== 'production', // Disable during development
+        }),
 
         // Generates SVG sprites
         new SVGSpriteLoaderPlugin({
@@ -236,14 +234,12 @@ module.exports = {
         }),
 
         // Generate CSS stylesheet file (aka extraction)
-        new MiniCssExtractPlugin(
-            {
-                // Options similar to those in webpackOptions.output
-                path: path.resolve(__dirname, `${dirDist}css/`), // Defaults to "dist/css/"
-                filename: "css/[name].css",
-                // chunkFilename: '[id].css',
-            }
-        ),
+        new MiniCssExtractPlugin({
+            // Options similar to those in webpackOptions.output
+            path: path.resolve(__dirname, `${dirDist}css/`), // Defaults to "dist/css/"
+            filename: "css/[name].css",
+            // chunkFilename: '[id].css',
+        }),
 
     ], // End plugins
 

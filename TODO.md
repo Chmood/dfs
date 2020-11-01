@@ -1,23 +1,18 @@
 # TODO
 
 - [ ] **GLOBAL**
-  - Repasser sur le script bash des permissions (Jean-Luc)
   - Rédiger la documentation (avec exemples de code + Prism.js)
-  - Mettre en place une démo / styleguide (projet séparé ou pas)
 
 - [ ] **BUILD**
   - Cachebusting en prod (hash à la fin des noms de fichiers) => voir selon CMS
 
 - [ ] **CSS**
   - _COMPONENTS_
-    - Modale + overlay (WIP...)
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox (simple + SVG)
-      - input's prefix & suffix (text, icon, button)
-    - `_buttons.scss` : refactor du modifieur `hollow`, et icones SVG
+    - `_buttons.scss` : refactor du modifieur `hollow`
     - LAYOUT :
-      - `header-sticky`
-      - `wrappers` (mainly for HTML structure)
+      - `sections` (mainly for HTML structure)
       - `navbar` (mobile and desktop)
       - `fixed-ratio`
       - `capped-width`
@@ -36,7 +31,7 @@
 
 - [ ] **ASSETS**
   - Icones : FontAwesome ou full-SVG ?
-  - Préparer une base pour les favicons (cf. nouveaux favicons en SVG => https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/)
+  - Préparer une base pour les favicons (cf. nouveaux favicons en SVG => https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) (et plugin webpack: https://github.com/jantimon/favicons-webpack-plugin)
 
 # DONE
 
@@ -45,6 +40,8 @@
   - Mise à jour de node et de NPM
   - Mettre à jour les paquets npm et les reclasser correctement (`devDependencies`)
   - Repenser la structure 
+  - Repasser sur le script bash des permissions (Jean-Luc)
+  - Mettre en place une démo / styleguide (projet séparé ou pas)
 
 - [ ] **BUILD**
   - Dossier `/dist` + flush/clean

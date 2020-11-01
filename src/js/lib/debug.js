@@ -13,7 +13,7 @@ const debug = (() => {
         $debugItemsScreenWidth.forEach(($item) => {
             $item.textContent =  screenWidth;
         })
-        console.log('Screen width changed:', screenWidth + 'px')
+        // console.log('Screen width changed:', screenWidth + 'px')
     }, 200) // 5x per second max
 
     window.onresize = updateDebugItemsScreenWidth

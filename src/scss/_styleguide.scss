@@ -4,108 +4,132 @@
 // Color blocks
 
 .styleguide-color-blocks {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 -4px;
-	margin-bottom: calc(#{$gutter} - 4px);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -4px;
+    margin-bottom: calc(#{$gutter} - 4px);
 }
 
 .styleguide-color-block {
-	flex-basis: 128px;
-	min-height: 128px;
-	margin: 4px;
-	border: 2px solid $color-gray-darker;
-	font-size: 12px;
+    flex-basis: 128px;
+    min-height: 128px;
+    margin: 4px;
+    border: 2px solid $color-gray-darker;
+    font-size: 12px;
 }
 
 .styleguide-color-block__label {
-	padding: 2px 4px;
-	background-color: $color-gray-darker;
-	color: white;
+    padding: 2px 4px;
+    background-color: $color-gray-darker;
+    color: white;
 }
 
 // Material shadows
 
 .styleguide-shadow-block {
-	padding: $gutter;
-	background-color: white;
+    padding: $gutter;
+    background-color: white;
 }
 
 // Buttons
 
 .styleguide-buttons {
-	.btn {
-		margin-bottom: $gutter-quarter;
-	}
+    .btn {
+        margin-bottom: $gutter-quarter;
+    }
 }
 
 // Icons
 
 .styleguide-icons {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	margin: - $gutter-quarter;
-	margin-bottom: ($gutter - $gutter-quarter);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: - $gutter-quarter;
+    margin-bottom: ($gutter - $gutter-quarter);
 
-	> * {
-		display: block;
-		margin: $gutter-quarter;
-		padding: 10px; // 10 + 24 + 10 = 44px
-		transition: all 0.25s;
-		background-color: white;
-		color: $color-gray-darker;
-	}
+    > div {
+        display: block;
+        margin: $gutter-quarter;
+        padding: 10px; // 10 + 24 + 10 = 44px
+        transition: all 0.25s;
+        background-color: white;
+        color: $color-gray-darker;
+    }
 
-	&.styleguide-icons--icon-set {
+    &.styleguide-icons--icon-set {
 
-		> * {
-			flex-basis: $gutter * 4;
-			padding: $gutter-half;
-			border: 1px solid $color-gray-lightest;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+        > div {
+            flex-basis: $gutter * 4;
+            padding: $gutter-half;
+            border: 1px solid $color-gray-lightest;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-			&:hover { // Not working on a div, WTF
-				border-color: $color-primary;
-				background-color: $color-primary;
-				color: white;
-				@include shadow(2);
-				cursor: pointer;
-			}
+            &:hover { // Not working on a div, WTF
+                border-color: $color-primary;
+                background-color: $color-primary;
+                color: white;
+                @include shadow(2);
+                cursor: pointer;
+            }
 
-			> span {
-				display: block;
-				margin-top: $gutter-half;
-				font-size: $font-size-smaller;
-			}
-		}
-	}
+            > span {
+                display: block;
+                margin-top: $gutter-half;
+                font-size: $font-size-smaller;
+            }
+        }
+    }
 
-	&.styleguide-icons--dark {
+    &.styleguide-icons--dark {
 
-		> * {
-			background-color: $color-gray-darker;
-			color: white;
-		}
-	}
+        > div {
+            background-color: $color-gray-darker;
+            color: white;
+        }
+    }
 }
 
 // Image test
 
 .styleguide-image-test {
-	margin-bottom: $gutter;
+    margin-bottom: $gutter;
 }
 
 .styleguide-bg-image-test {
-	margin-bottom: $gutter;
-	width: 600px;
-	height: 200px;
-	background-image: url('/dist/img/logo-diatem.jpg');
-	margin: $gutter auto;
+    margin-bottom: $gutter;
+    width: 600px;
+    height: 200px;
+    background-image: url('/dist/img/logo-diatem.jpg');
+    margin: $gutter auto;
 }
+
+// STYLEGUIDE TYPOGRAPHY
+
+.page--styleguide {
+
+    // Hash Tag Links Padding
+    // See: https://css-tricks.com/hash-tag-links-padding/
+    
+    h2::before { 
+        $site-header-height: 8.9rem; // Magic value!
+    
+        display: block; 
+        content: " "; 
+        margin-top: -($site-header-height + $gutter-double); 
+        height: ($site-header-height + $gutter-double); 
+        visibility: hidden; 
+        pointer-events: none;
+    }
+    
+    h3 {
+        margin-top: $gutter-double;
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // STYLEGUIDE PAGE LAYOUT
@@ -113,91 +137,77 @@
 // NAVBAR
 
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 // Logo
 
 .navbar-logo {
-	display: block;
-	width: 15rem;
-	margin-right: $gutter;
+    display: block;
+    width: 15rem;
+    margin-right: $gutter;
 }
 
 // Menu
 
 .navbar-menu {
-	flex-grow: 1;
+    flex-grow: 1;
 
-	/*ul*/.menu {
-		@include reset-list();
-		display: flex;
-		justify-content: flex-end;
-	}
+    /*ul*/.menu {
+        @include reset-list();
+        display: flex;
+        justify-content: flex-end;
+    }
 
-	/*li*/.menu-item {
-		padding: $gutter-quarter;
+    /*li*/.menu-item {
+        padding: $gutter-quarter;
 
-		&:not(:last-child) {
-			margin-right: $gutter-quarter;
-		}
-	}
-	
-	/*a*/.menu-item-link {
-		position: relative;
-		color: $color-secondary;
+        &:not(:last-child) {
+            margin-right: $gutter-quarter;
+        }
+    }
+    
+    /*a*/.menu-item-link {
+        position: relative;
+        color: $color-secondary;
 
 
-		&::after {
-			content: "";
-			position: absolute;
-			display: block;
-			height: 2px;
-			width: 100%;
-			bottom: -0.4rem;
-			background-color: currentColor;
-			transform-origin: 0 0;
-			transform: scaleX(0);
-			transition: all 0.25s;
-		}
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 2px;
+            width: 100%;
+            bottom: -0.4rem;
+            background-color: currentColor;
+            transform-origin: 0 0;
+            transform: scaleX(0);
+            transition: all 0.25s;
+        }
 
-		@include hocus() {
-			color: $color-secondary;
+        @include hocus() {
+            color: $color-secondary;
 
-			&::after {
-				transform: scaleX(1);
-			}
-		}
-	}
-}
-
-// Hash Tag Links Padding
-// See: https://css-tricks.com/hash-tag-links-padding/
-
-h2::before { 
-	$site-header-height: 8.9rem; // Magic value!
-
-	display: block; 
-	content: " "; 
-	margin-top: -($site-header-height + $gutter); 
-	height: ($site-header-height + $gutter); 
-	visibility: hidden; 
-	pointer-events: none;
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
 }
 
 // FOOTER
 
 .footer-made-by {
-	color: $color-gray-light;
-	text-align: center;
+    color: $color-gray-light;
+    text-align: center;
 }
 
 .footer-made-by__link {
-	color: $color-gray-light;
+    color: $color-gray-light;
 
-	@include hocus() {
-		color: white;
-	}
+    @include hocus() {
+        color: white;
+    }
 }

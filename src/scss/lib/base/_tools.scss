@@ -17,6 +17,25 @@
 .padding-quad { padding: $gutter-quad; }
 .padding-half { padding: $gutter-half; }
 .padding-quarter { padding: $gutter-quarter; }
+.padding-eighth { padding: $gutter-eighth; }
+
+.no-v-padding { @include v-padding(0); }
+.v-padding { @include v-padding($gutter); }
+.v-padding-double { @include v-padding($gutter-double); }
+.v-padding-triple { @include v-padding($gutter-triple); }
+.v-padding-quad { @include v-padding($gutter-quad); }
+.v-padding-half { @include v-padding($gutter-half); }
+.v-padding-quarter { @include v-padding($gutter-quarter); }
+.v-padding-eighth { @include v-padding($gutter-eighth); }
+
+.no-h-padding { @include h-padding(0); }
+.h-padding { @include h-padding($gutter); }
+.h-padding-double { @include h-padding($gutter-double); }
+.h-padding-triple { @include h-padding($gutter-triple); }
+.h-padding-quad { @include h-padding($gutter-quad); }
+.h-padding-half { @include h-padding($gutter-half); }
+.h-padding-quarter { @include h-padding($gutter-quarter); }
+.h-padding-eighth { @include h-padding($gutter-eighth); }
 
 // MARGIN HELPER
 
@@ -31,14 +50,40 @@
 }
 
 .no-margin { margin: 0; }
+.margin { margin: $gutter; }
+.margin-double { margin: $gutter-double; }
+.margin-triple { margin: $gutter-triple; }
+.margin-quad { margin: $gutter-quad; }
+.margin-half { margin: $gutter-half; }
+.margin-quarter { margin: $gutter-quarter; }
+.margin-eighth { margin: $gutter-eighth; }
+
+.no-v-margin { @include v-margin(0); }
+.v-margin { @include v-margin($gutter); }
+.v-margin-double { @include v-margin($gutter-double); }
+.v-margin-triple { @include v-margin($gutter-triple); }
+.v-margin-quad { @include v-margin($gutter-quad); }
+.v-margin-half { @include v-margin($gutter-half); }
+.v-margin-quarter { @include v-margin($gutter-quarter); }
+.v-margin-eighth { @include v-margin($gutter-eighth); }
+
+.no-h-margin { @include h-margin(0); }
+.h-margin { @include h-margin($gutter); }
+.h-margin-double { @include h-margin($gutter-double); }
+.h-margin-triple { @include h-margin($gutter-triple); }
+.h-margin-quad { @include h-margin($gutter-quad); }
+.h-margin-half { @include h-margin($gutter-half); }
+.h-margin-quarter { @include h-margin($gutter-quarter); }
+.h-margin-eighth { @include h-margin($gutter-eighth); }
+
+.no-margin-bottom { margin-bottom: 0; }
 .margin-bottom { margin-bottom: $gutter; }
 .margin-bottom-half { margin-bottom: $gutter-half; }
 .margin-bottom-double { margin-bottom: $gutter-double; }
 .margin-bottom-quarter { margin-bottom: $gutter-quarter; }
 
 .margin-auto {
-    margin-left: auto;
-    margin-right: auto;
+    @include h-margin(auto);
 }
 
 // SIZE HELPER
@@ -149,11 +194,6 @@
 }
 
 // MISC
-
-// .square {
-// 	height: 0;
-// 	padding-bottom: 100%;
-// }
 
 // Visible only for Screen readers
 
