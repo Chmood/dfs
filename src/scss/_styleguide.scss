@@ -114,7 +114,7 @@
 
 .styleguide-bg-image-test {
     margin-bottom: $gutter;
-    width: 600px;
+    max-width: 600px;
     height: 200px;
     background-image: url('/dist/img/logo-diatem.jpg');
     margin: $gutter auto;
@@ -167,6 +167,11 @@
 
 .navbar-menu {
     flex-grow: 1;
+    display: none;
+
+    @include bp('sm') {
+        display: block;
+    }
 
     /*ul*/.menu {
         @include reset-list();

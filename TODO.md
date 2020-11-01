@@ -4,6 +4,7 @@
   - Exemples de code + Prism.js dans le styleguide
 
 - [ ] **BUILD**
+  - Fix Browsersync!
   - Cachebusting en prod (hash à la fin des noms de fichiers) => voir selon CMS
 
 - [ ] **CSS**
@@ -23,7 +24,7 @@
   - Fichier de config pour eslint (à définir ensemble)
   - Utiliser jQuery ? (pour Select2 par exemple)
   - _COMPONENTS_
-    - Porter `tabs.js`
+    - Porter `tabs.js` + accordions
     - Throttle et debounce helpers pour les promises
     - Scroll watcher ?
 
