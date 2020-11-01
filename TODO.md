@@ -1,7 +1,8 @@
 # TODO
 
 - [ ] **GLOBAL**
-  - Rédiger la documentation (avec exemples de code + Prism.js)
+  - Fichier .editorconfig
+  - Exemples de code + Prism.js dans le styleguide
 
 - [ ] **BUILD**
   - Cachebusting en prod (hash à la fin des noms de fichiers) => voir selon CMS
@@ -9,67 +10,25 @@
 - [ ] **CSS**
   - _COMPONENTS_
     - Formulaires (`_forms.scss`) (WIP...)
-      - radio / checkbox (simple + SVG)
-    - `_buttons.scss` : refactor du modifieur `hollow`
+      - radio / checkbox full SVG
+    - `_buttons.scss` : refactor du modifieur `hollow` (semble complexe)
     - LAYOUT :
-      - `sections` (mainly for HTML structure)
-      - `navbar` (mobile and desktop)
+      - `navbar` (mobile and desktop) ???
       - `fixed-ratio`
-      - `capped-width`
+      - `capped-width` (aka `max-width-md`)
     - MISC
 
 - [ ] **JS**
   - Fichier de config pour eslint (à définir ensemble)
   - Utiliser jQuery ? (pour Select2 par exemple)
   - _COMPONENTS_
-    - `ajax.js` : utiliser axios ? Ou juste fetch ?
-    - Porter `tabs.js` et `toggler.js`
-    - Nouveau composants éventuels :
-      - Throttle et debounce helpers (pour les promises aussi)
-      - Scroll watcher
-      - Mobile "Ripple" touch effect (UX feedback) ?
+    - Porter `tabs.js`
+    - Throttle et debounce helpers pour les promises
+    - Scroll watcher ?
 
 - [ ] **ASSETS**
-  - Icones : FontAwesome ou full-SVG ?
+  - Icones : prévoir un set minimal ("fermer", "hamburger"...)
   - Préparer une base pour les favicons (cf. nouveaux favicons en SVG => https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) (et plugin webpack: https://github.com/jantimon/favicons-webpack-plugin)
-
-# DONE
-
-- [ ] **GLOBAL**
-  - Trouver un vrai nom (https://www.wordhippo.com/what-is/the/japanese-word-for-260916a2dcc5207229d1bac2e5930abac150297e.html)
-  - Mise à jour de node et de NPM
-  - Mettre à jour les paquets npm et les reclasser correctement (`devDependencies`)
-  - Repenser la structure 
-  - Repasser sur le script bash des permissions (Jean-Luc)
-  - Mettre en place une démo / styleguide (projet séparé ou pas)
-
-- [ ] **BUILD**
-  - Dossier `/dist` + flush/clean
-  - Mode verbeux pour le `watch` par défaut
-  - Prévoir le `live-reload` (dev-server / browsersync) pour le futur (dev en local)
-  - Variable ENV pour dev ou prod
-  - Sourcemaps CSS + JS (à BIEN tester !)
-
-- [ ] **CSS**
-  - Sortir `_variables.scss` à la racine de `/src/scss` (même niveau que `main.scss`)
-  - S'accorder sur une convention de nommage des classes et des variables (kebab-case partout)
-  - Refactor des `@extend` au profit de mixins
-  - Supprimer les sélecteurs composés (ex: `&-foo`)
-  - Améliorer les debug des breakpoints
-  - _COMPONENTS_
-    - Créer une vraie palette unifiée (`_colors.scss`) => voir avec Laurent
-    - `_gutter.scss` : unité de taille unique (nom à définir)
-    - Regrouper les styles typographique dans `_type.scss` (fontsize, graisses, titraille)
-    - Grille flex + containers + breakpoints : à voir avec Jean-Luc et Laurent
-    - `_layout.scss` : html/body height, sticky footer...
-
-- [ ] **JS**
-  - Validation JS avec ESLint
-
-- [ ] **ASSETS**
-  - Simple copy (fonts, favicons...)
-  - Optimisation des images (en production uniquement)
-  - SVG sprites (au lieu de icon-font-plugin)
 
 
 # NOTES

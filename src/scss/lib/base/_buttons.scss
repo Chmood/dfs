@@ -465,3 +465,11 @@ input[type="button"] {
         flex-shrink: 0;
     }
 }
+
+// RIPPLE FX
+
+button,
+.btn {
+    position: relative;
+    overflow: hidden;
+}
