@@ -9,14 +9,16 @@ import assets from "./assets"
 
 // LIB
 
+import toggle from "./lib/toggle"
 import modal from "./lib/modal"
 // import select2 from "./lib/select2"
 
 // [TODO] Port Skeleton and Lightwords libs here
 
-// Example lib
 import debug from "./lib/debug"
-import foo from "./lib/foo"
+
+// Example lib
+// import foo from "./lib/foo"
 
 // APP
 import app from "./app/app"

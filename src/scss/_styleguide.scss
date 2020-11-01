@@ -93,6 +93,19 @@
     }
 }
 
+// Toggle JS
+
+.styleguide-toggle-target {
+    padding: $gutter-double;
+    background-color: $color-gray-darker;
+    color: white;
+    transition: all 0.25s;
+
+    &.active {
+        background-color: $color-accent;
+    }
+}
+
 // Image test
 
 .styleguide-image-test {
@@ -209,5 +222,15 @@
 
     @include hocus() {
         color: white;
+    }
+}
+
+// SECTIONS
+
+.section--styleguide {
+    @include v-padding($gutter-double);
+
+    &:nth-child(even) {
+        background-color: $color-gray-lightest;
     }
 }
