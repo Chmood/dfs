@@ -11,7 +11,7 @@
 
 <body class="page page--styleguide has-sticky-header">
 
-    <div class="site-wrapper">
+    <div class="site-wrapper" aria-hidden="false">
 
         <!-- SITE HEADER -->
 
@@ -159,7 +159,7 @@
                 <div class="container">
     
                     <h2 id="colors">Colors</h2>
-                    <p><em>Source code: <code>scss/base/_colors.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_colors.scss</code></em></p>
     
                     <h3 class="styleguide-h3">Primary colors</h3>
                     <div class="styleguide-color-blocks">
@@ -282,7 +282,7 @@
                 <div class="container">
     
                     <h2 id="type">Typography</h2>
-                    <p><em>Source code: <code>scss/base/_type.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_type.scss</code></em></p>
     
                     <h3 class="styleguide-h3">Headings</h3>
     
@@ -437,7 +437,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
     
                     <h2 id="forms">Forms</h2>
-                    <p><em>Source code: <code>scss/base/_forms.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_forms.scss</code></em></p>
     
                     <div class="row">
                         <div class="col">
@@ -884,7 +884,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
 
                     <h2 id="icons">Icons</h2>
-                    <p><em>Source code: <code>scss/base/_icons.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_icons.scss</code></em></p>
     
                     <h3 class="styleguide-h3">Icon set</h3>
     
@@ -1163,7 +1163,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
     
                     <h2 id="buttons">Buttons</h2>
-                    <p><em>Source code: <code>scss/base/_buttons.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_buttons.scss</code></em></p>
     
                     <div class="row styleguide-buttons">
                         <div class="col-xs-6 col-sm-4 col-md-3">
@@ -1405,7 +1405,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
     
                     <h2>Shadows</h2>
-                    <p><em>Source code: <code>scss/base/_shadows.scss</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_shadows.scss</code></em></p>
     
                     <div class="row">
                         <div class="col-xxs-6 col-sm-3">
@@ -1437,7 +1437,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
     
                     <h2>Modal and overlay</h2>
-                    <p><em>Source code: <code>scss/base/_modal.scss</code> and <code>js/lib/modal.js</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>scss/base/_modal.scss</code> and <code>js/lib/modal.js</code></em></p>
     
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modal_1">Small modal</button>
     
@@ -1454,7 +1454,7 @@ architecto itaque consequatur beatae.<!--
                 <div class="container">
     
                     <h2>Toggle helper</h2>
-                    <p class="margin-bottom-double"><em>Source code: <code>js/lib/toggle.js</code></em></p>
+                    <p class="styleguide-p-sourcecode"><em>Source code: <code>js/lib/toggle.js</code></em></p>
 
                     <p>
                         <button class="btn btn-default" data-toggle data-toggle-classname="btn-primary">Toggle me</button>
@@ -1464,8 +1464,14 @@ architecto itaque consequatur beatae.<!--
                         <button class="btn btn-secondary" data-toggle=".styleguide-toggle-target">Togglers with targets</button>
                         <button class="btn btn-secondary" data-toggle=".styleguide-toggle-target">Togglers with targets</button>
                     </p>
-                    <div class="styleguide-toggle-target margin-bottom-half">I'm the target</div>
-                    <div class="styleguide-toggle-target">Me too</div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="styleguide-toggle-target margin-bottom-half">I'm the target</div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="styleguide-toggle-target">Me too</div>
+                        </div>
+                    </div>
     
                 </div>
             </section>
@@ -1529,11 +1535,14 @@ architecto itaque consequatur beatae.<!--
     </div><!-- End .site-wrapper -->
 
     <!-- OVERLAY AND MODAL -->
+
+    <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
-    <dialog class="modal modal-sm" id="modal_1">
+    <!-- Small modal -->
+    <dialog class="modal modal-sm" id="modal_1" role="dialog" aria-labelledby="modal_1-title" aria-hidden="true">
         <div class="modal__header">
-            <div class="modal__title h3">Small Modal title</div>
+            <div class="modal__title h3" id="modal_1-title">Small Modal title</div>
             <button class="modal__btn-close btn btn-round" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
@@ -1542,18 +1551,18 @@ architecto itaque consequatur beatae.<!--
             </button>
         </div>
         <div class="modal__body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
-                accusantium reiciendis, voluptas, consequuntur.</p>
+            <p>Short confirmation message</p>
         </div>
         <div class="modal__footer">
             <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-primary" data-modal="close">Accept</button>
+            <button class="btn btn-primary" data-modal="close" data-modal-focus>Accept</button>
         </div>
     </dialog>
 
-    <dialog class="modal" id="modal_2">
+    <!-- Default modal -->
+    <dialog class="modal" id="modal_2" role="dialog" aria-labelledby="modal_2-title" aria-hidden="true">
         <div class="modal__header">
-            <div class="modal__title h3">Default modal title</div>
+            <div class="modal__title h3" id="modal_2-title">Default modal title</div>
             <button class="modal__btn-close btn btn-round" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
@@ -1583,13 +1592,14 @@ architecto itaque consequatur beatae.<!--
         </div>
         <div class="modal__footer">
             <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-primary" data-modal="close">Accept</button>
+            <button class="btn btn-secondary" data-modal="close" data-modal-focus>Accept</button>
         </div>
     </dialog>
 
-    <dialog class="modal modal-lg" id="modal_3">
+    <!-- Large modal -->
+    <dialog class="modal modal-lg" id="modal_3" role="dialog" aria-labelledby="modal_3-title" aria-hidden="true">
         <div class="modal__header">
-            <div class="modal__title h3">Large modal title</div>
+            <div class="modal__title h3" id="modal_3-title">Large modal title</div>
             <button class="modal__btn-close btn btn-round" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
@@ -1598,6 +1608,12 @@ architecto itaque consequatur beatae.<!--
             </button>
         </div>
         <div class="modal__body">
+            <div class="input-block">
+                <label for="text1000">Text input</label>
+                <div class="input">
+                    <input type="text" id="text1000" placeholder="This one has focus" data-modal-focus />
+                </div>
+            </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius error repellendus, alias inventore
                 accusantium reiciendis, voluptas, consequuntur assumenda aliquid quos vitae officia delectus
                 necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
@@ -1610,7 +1626,7 @@ architecto itaque consequatur beatae.<!--
         </div>
         <div class="modal__footer">
             <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-primary" data-modal="close">Accept</button>
+            <button class="btn btn-accent" data-modal="close" data-modalfocus>Accept</button>
         </div>
     </dialog>
 

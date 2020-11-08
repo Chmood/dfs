@@ -11,7 +11,9 @@
   - _COMPONENTS_
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox full SVG [???]
-    - `_buttons.scss` : refactor du modifieur `hollow` (semble complexe) [???]
+    - `_buttons.scss` : 
+      - button background grow effect (ala material design / gmail)
+      - refactor du modifieur `hollow` (semble complexe) [???]
     - LAYOUT :
       - `navbar` (mobile and desktop) [???]
       - `fixed-ratio`
@@ -19,6 +21,7 @@
     - MISC
       - z-index scale
       - new color shades : 'lighty' and 'darky' (9 shades instead of 7) [???]
+      - ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
 
 - [ ] **JS**
   - Fichier de config pour eslint (à définir ensemble)
