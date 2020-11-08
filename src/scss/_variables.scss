@@ -180,13 +180,20 @@ $border-radius-base: 4px !default;
 
 // FORMS
 
-$input-bg-color: $body-bg-color-base !default;
+$input-bg: $body-bg-color-base !default;
 $input-color: $body-color-base !default;
-$input-border-color: $color-gray-lighter !default;
 $input-color-placeholder: $color-gray !default;
-$input-height-base: 4.0rem !default;
+
+$input-border-color: $color-gray-lighter !default;
 $input-border-radius: $border-radius-base !default;
+$input-height-base: 4.0rem !default;
+
+$input-size-radiobox: 1.4rem !default;
+$input-size-radiobox-inner: 0.8rem !default;
+$input-color-radiobox-inner: $color-accent !default;
+
 $input-width-gutter-label-inline: $gutter-half !default;
+$input-width-gutter-label-radiobox: $gutter-quarter !default; // Between checkbox/radio and their labels
 $input-width-gutter-block-inline: $gutter !default;
 $input-width-gutter-btn-inline: $gutter-quarter !default;
 

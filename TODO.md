@@ -12,7 +12,7 @@
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox full SVG [???]
     - `_buttons.scss` : 
-      - button background grow effect (ala material design / gmail)
+      - [BUG] button inheritance: using @btn mixin compared to .btn classes => classes should win
       - refactor du modifieur `hollow` (semble complexe) [???]
     - LAYOUT :
       - `navbar` (mobile and desktop) [???]

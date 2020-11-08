@@ -1237,8 +1237,7 @@ architecto itaque consequatur beatae.<!--
                             <button class="btn btn-primary">.btn</button>
                             <a href="#" class="btn btn-primary btn-lg">.btn-lg</a>
                             <button class="btn btn-primary btn-xl">.btn-xl</button>
-                        </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3">
+
                             <h3 class="styleguide-h3">Layout</h3>
                             <button class="btn btn-primary btn-block">.btn-block</button>
                             <button class="btn btn-secondary btn-wrap">
@@ -1249,6 +1248,63 @@ architecto itaque consequatur beatae.<!--
                             </button>
                         </div>
                         <div class="col-xs-6 col-sm-4 col-md-3">
+                            <h3 class="styleguide-h3">Background grow</h3>
+                            <button class="btn btn-bg-grow">.bg-grow</button>
+                            <button class="btn btn-bg-grow">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-menu"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-default btn-bg-grow btn-round">.bg-grow default</button>
+                            <button class="btn btn-default btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-menu"></use>
+                                </svg>
+                            </button>
+                            <!-- <div style="background: black; padding: 0.75rem; margin-bottom: 1.5rem;">
+                            </div> -->
+                            <button class="btn btn-black btn-bg-grow">.bg-grow black</button>
+                            <button class="btn btn-black btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-gray btn-bg-grow">.bg-grow gray</button>
+                            <button class="btn btn-gray btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-white btn-bg-grow">.bg-grow white</button>
+                            <button class="btn btn-white btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-primary btn-bg-grow">.bg-grow primary</button>
+                            <button class="btn btn-primary btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-secondary btn-bg-grow btn-round">.bg-grow secondary</button>
+                            <button class="btn btn-secondary btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+                            <button class="btn btn-accent btn-bg-grow">.bg-grow accent</button>
+                            <button class="btn btn-accent btn-bg-grow btn-round">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg>
+                            </button>
+
                             <h3 class="styleguide-h3">Disabled</h3>
                             <button class="btn" disabled="disabled">disabled</button>
                             <button class="btn btn-default" disabled="disabled">disabled</button>
@@ -1263,7 +1319,9 @@ architecto itaque consequatur beatae.<!--
                             </button>
                             <button class="btn btn-accent" disabled="disabled">disabled</button>
                         </div>
-                        <div class="col-xs-6 col-sm-4 col-md-3">
+                        <!-- <div class="col-xs-6 col-sm-4 col-md-3">
+                        </div> -->
+                        <div class="col-xs-12 col-md-6">
                             <h3 class="styleguide-h3">Icons</h3>
                             <button class="btn">
                                 <svg class="icon" viewBox="0 0 24 24">
@@ -1543,7 +1601,7 @@ architecto itaque consequatur beatae.<!--
     <dialog class="modal modal-sm" id="modal_1" role="dialog" aria-labelledby="modal_1-title" aria-hidden="true">
         <div class="modal__header">
             <div class="modal__title h3" id="modal_1-title">Small Modal title</div>
-            <button class="modal__btn-close btn btn-round" data-modal="close">
+            <button class="modal__btn-close" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
                 </svg>
@@ -1554,8 +1612,8 @@ architecto itaque consequatur beatae.<!--
             <p>Short confirmation message</p>
         </div>
         <div class="modal__footer">
-            <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-primary" data-modal="close" data-modal-focus>Accept</button>
+            <button class="modal__btn-dismiss" data-modal="close">Decline</button>
+            <button class="modal__btn-accept" data-modal="close" data-modal-focus>Accept</button>
         </div>
     </dialog>
 
@@ -1563,7 +1621,7 @@ architecto itaque consequatur beatae.<!--
     <dialog class="modal" id="modal_2" role="dialog" aria-labelledby="modal_2-title" aria-hidden="true">
         <div class="modal__header">
             <div class="modal__title h3" id="modal_2-title">Default modal title</div>
-            <button class="modal__btn-close btn btn-round" data-modal="close">
+            <button class="modal__btn-close" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
                 </svg>
@@ -1591,8 +1649,8 @@ architecto itaque consequatur beatae.<!--
                 necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
         </div>
         <div class="modal__footer">
-            <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-secondary" data-modal="close" data-modal-focus>Accept</button>
+            <button class="modal__btn-dismiss" data-modal="close">Decline</button>
+            <button class="modal__btn-accept btn-secondary" data-modal="close" data-modal-focus>Accept</button>
         </div>
     </dialog>
 
@@ -1600,7 +1658,7 @@ architecto itaque consequatur beatae.<!--
     <dialog class="modal modal-lg" id="modal_3" role="dialog" aria-labelledby="modal_3-title" aria-hidden="true">
         <div class="modal__header">
             <div class="modal__title h3" id="modal_3-title">Large modal title</div>
-            <button class="modal__btn-close btn btn-round" data-modal="close">
+            <button class="modal__btn-close btn btn-round btn-bg-grow" data-modal="close">
                 <svg class="icon icon-lg" viewBox="0 0 24 24">
                     <use xlink:href="#icon-close"></use>
                 </svg>
@@ -1625,8 +1683,8 @@ architecto itaque consequatur beatae.<!--
                 necessitatibus nihil suscipit. Incidunt suscipit modi doloremque.</p>
         </div>
         <div class="modal__footer">
-            <button class="btn" data-modal="close">Decline</button>
-            <button class="btn btn-accent" data-modal="close" data-modalfocus>Accept</button>
+            <button class="modal__btn-dismiss" data-modal="close">Decline</button>
+            <button class="modal__btn-accept btn-accent" data-modal="close" data-modalfocus>Accept</button>
         </div>
     </dialog>
 
