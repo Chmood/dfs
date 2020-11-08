@@ -18,16 +18,25 @@ const
 
     // Cleans /dist folder before build
     { CleanWebpackPlugin } = require("clean-webpack-plugin"),
+
     // Copy static files from src to dist
     CopyWebpackPlugin = require("copy-webpack-plugin"),
+
     // Optimize images
     ImageminPlugin = require("imagemin-webpack-plugin").default,
+
     // Generates SVG sprites
     SVGSpriteLoaderPlugin = require("svg-sprite-loader/plugin"),
+
     // Optimize SVG (for sprites)
     // SVGOLoaderPlugin = require("svgo-loader"),
+
     // Extract CSS compiled stylesheet into files
-    MiniCssExtractPlugin = require("mini-css-extract-plugin")
+    MiniCssExtractPlugin = require("mini-css-extract-plugin"),
+
+    // Browser synced between multiple devices
+    BrowserSyncPlugin = require("browser-sync-webpack-plugin")
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION
@@ -241,6 +250,45 @@ module.exports = {
             // chunkFilename: '[id].css',
         }),
 
+        // BROWSERSYNC
+        new BrowserSyncPlugin({
+            notify: true,
+            // host: 'localhost',
+            host: '0.0.0.0',
+            port: 3000,
+            // logLevel: 'silent',
+            // files: [
+            //     // '{lib,templates}/**/*.php', '*.php',
+            //     "*.css",
+            //     "**/*.php",
+            //     "**/*.twig",
+            //     // dest + '/**',
+            //     "!**/*.map",
+            //     "!vendor",
+            //     "!node_modules"
+            // ],
+            files: [
+                './*.html',
+                // '**/*.css'
+            ],
+            proxy: "localhost:8080", // The webpack dev server port
+            open: false,
+            browser: ["google chrome", "firefox"]
+        },
+        // plugin options
+        {
+            // prevent BrowserSync from reloading the page
+            // and let Webpack Dev Server take care of this
+            reload: false,
+            injectCss: true,
+        }
+    )
+
     ], // End plugins
+
+    devServer: {
+        host: '0.0.0.0',//your ip address
+        port: 8080
+    }    
 
 } // End module.exports
