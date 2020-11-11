@@ -117,7 +117,9 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    background-color: $color-gray-lighter;
+                    @if $btn-color-active {
+                        background-color: $color-gray-lighter;
+                    }
                     color: black;
                 }
 
@@ -133,7 +135,9 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    background-color: $color-primary-light;
+                    @if $btn-color-active {
+                        background-color: $color-primary-light;
+                    }
                     color: white;
                 }
 
@@ -149,7 +153,9 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    background-color: $color-secondary-light;
+                    @if $btn-color-active {
+                        background-color: $color-secondary-light;
+                    }
                     color: white;
                 }
 
@@ -165,7 +171,9 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    background-color: $color-accent-light;
+                    @if $btn-color-active {
+                        background-color: $color-accent-light;
+                    }
                     color: white;
                 }
     
@@ -181,8 +189,10 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    // background-color: $color-accent-dark;
-                    color: $color-gray-lightest;
+                    @if $btn-color-active {
+                        background-color: $color-gray-darkest;
+                    }
+                    color: white;
                 }
             }
     
@@ -197,7 +207,9 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    background-color: $color-gray-light;
+                    @if $btn-color-active {
+                        background-color: $color-gray-light;
+                    }
                     color: white;
                 }
 
@@ -213,7 +225,6 @@ input[type="button"] {
 
             &:not(:disabled) {
                 @include hocus() {
-                    // background-color: $color-accent-dark;
                     color: $color-gray-darkest;
                 }
 

@@ -59,8 +59,9 @@ $color-accent: #80bc49 !default;
 $color-gray: #888 !default;
 
 // Shading factors
-$color-variation-ratio-base: 20% !default;
-$color-variation-ratio-more: 55% !default;
+$color-variation-ratio-less: 20% !default;
+$color-variation-ratio-base: 45% !default;
+$color-variation-ratio-more: 65% !default;
 $color-variation-ratio-most: 85% !default;
 
 // "Universal" colors
@@ -226,6 +227,7 @@ $btn-border-radius: $border-radius-base !default;
 
 $btn-border-size-hollow: 2px !default;
 $btn-shadow-active: 1 !default; // Refers to @mixing shadow() parameter (from 0 to 5)
+$btn-color-active: false !default; // Lighter background on hover and focus
 
 // CODE
 
