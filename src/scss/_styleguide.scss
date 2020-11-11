@@ -106,6 +106,30 @@
     }
 }
 
+// Tabs
+
+.styleguide-tabs-toggles {
+    
+    .tab-toggle {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &.active {
+            @include btn('default');
+        }
+    }
+}
+
+.styleguide-tabs-contents {
+    margin-bottom: $gutter;
+    
+    .tab-content {
+        padding: $gutter;
+        background-color: $color-gray-lightest;
+    }
+}
+
+
 // Image test
 
 .styleguide-image-test {

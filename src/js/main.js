@@ -11,6 +11,7 @@ import assets from "./assets"
 
 import toggle from "./lib/toggle"
 import modal from "./lib/modal"
+import tabs from "./lib/tabs"
 import ripple from "./lib/ripple"
 // import select2 from "./lib/select2"
 

@@ -52,6 +52,7 @@
 @import "lib/components/buttons";
 @import "lib/components/type"; // Depends on: breakpoints, tools
 @import "lib/components/forms"; // Depends on: breakpoint
+@import "lib/components/tabs"; // Depends on: ???
 @import "lib/components/modal"; // Depends on: button
 
 // DEBUG
