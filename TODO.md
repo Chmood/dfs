@@ -16,24 +16,26 @@
       - refactor du modifieur `hollow` (semble complexe) [???]
     - LAYOUT :
       - `navbar` (mobile and desktop) [???]
-      - `fixed-ratio`
-      - `capped-width` (aka `max-width-md`)
-    - MISC
-      - z-index scale
-      - new color shades : 'lighty' and 'darky' (9 shades instead of 7) [???]
-      - ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
+    - Others :
+      - Breadcrumbs ?
+      - Pagination ?
+      - Social icons ?
+  - MISC
+    - z-index scale
+    - ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
+    - @mixins : background-cover() ?
+    - GSAP ? / parallax ? / Lightbox ? / carousel (Owl needs jQuery!) ?
 
 - [ ] **JS**
   - Fichier de config pour eslint (à définir ensemble)
-  - Utiliser jQuery ? (pour Select2 par exemple)
+  - Utiliser jQuery ? (pour Select2, ou Owl Carousel par exemple)
   - _COMPONENTS_
     - Porter `tabs.js` + accordions
     - Throttle et debounce helpers pour les promises
-    - Scroll watcher ?
+    - Scroll watcher ? (scroll-to-top button etc...)
 
 - [ ] **ASSETS**
   - Icones : prévoir un set minimal ("fermer", "hamburger"...)
-  - Préparer une base pour les favicons (cf. nouveaux favicons en SVG => https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) (et plugin webpack: https://github.com/jantimon/favicons-webpack-plugin)
 
 
 # NOTES

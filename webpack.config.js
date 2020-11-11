@@ -34,6 +34,9 @@ const
     // Extract CSS compiled stylesheet into files
     MiniCssExtractPlugin = require("mini-css-extract-plugin"),
 
+    // Favicon generator plugin
+    FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
+
     // Browser synced between multiple devices
     BrowserSyncPlugin = require("browser-sync-webpack-plugin")
 
@@ -217,7 +220,7 @@ module.exports = {
         new CopyWebpackPlugin(
             [
                 // { from: "img/video/*.*", to: path.resolve(__dirname, dirDist) },
-                { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
+                // { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
                 { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
                 { from: "fonts/*.*", to: path.resolve(__dirname, dirDist) },
             ],
@@ -248,6 +251,29 @@ module.exports = {
             path: path.resolve(__dirname, `${dirDist}css/`), // Defaults to "dist/css/"
             filename: "css/[name].css",
             // chunkFilename: '[id].css',
+        }),
+
+        // Generate favicons
+        // See: https://github.com/jantimon/favicons-webpack-plugin
+        new FaviconsWebpackPlugin({
+            logo: path.resolve(__dirname, `${dirSrc}img/favicon/favicon.svg`),
+            outputPath: '/img/favicon/',
+            mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
+            devMode: 'light', // optional can be 'webapp' or 'light' - 'light' by default
+            cache: true,
+            favicons: {
+                // See: https://github.com/itgalaxy/favicons#usage
+                appName: 'my-app',
+                appDescription: 'My awesome App',
+                developerName: 'Me',
+                developerURL: null, // prevent retrieving from the nearest package.json
+                background: '#ddd',
+                theme_color: '#333',
+                icons: {
+                    coast: false,
+                    yandex: false
+                }
+            }
         }),
 
         // BROWSERSYNC
