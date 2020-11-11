@@ -44,6 +44,7 @@
 @import "lib/layout/grid"; // Depends on: breakpoints
 @import "lib/layout/layout"; // Depends on: unit-tools
 @import "lib/layout/container"; // Depends on: unit-tools, breakpoints
+@import "lib/layout/capped-width"; // Depends on: unit-tools, breakpoints
 
 // COMPONENTS
 
