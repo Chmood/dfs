@@ -1,4 +1,13 @@
-# TODO
+# TODO & BUGS
+
+## BUGS
+
+- Favicons from `manifest.json` missing / 404 (`assets/` in paths)
+- Fix Browsersync!
+- Button inheritance: using @btn mixin compared to .btn classes => classes should win
+- Ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
+
+## TODO
 
 - **GLOBAL**
 
@@ -7,8 +16,6 @@
   - Exemples de code + Prism.js dans le styleguide
 
 - **BUILD**
-  - Fix Browsersync!
-  - [BUG] Favicons from `manifest.json` missing / 404 (`assets/` in paths)
   - Cachebusting en prod (hash à la fin des noms de fichiers) => voir selon CMS
 
 - **CSS**
@@ -16,7 +23,6 @@
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox full SVG [???]
     - `_buttons.scss` : 
-      - [BUG] button inheritance: using @btn mixin compared to .btn classes => classes should win
       - refactor du modifieur `hollow` (semble complexe) [???]
     - LAYOUT :
       - `navbar` (mobile and desktop) [???]
@@ -26,7 +32,6 @@
       - Social icons ?
   - MISC
     - z-index scale
-    - ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
     - @mixins : background-cover() ?
     - GSAP ? / parallax ? / Lightbox ? / carousel (Owl needs jQuery!) ?
 

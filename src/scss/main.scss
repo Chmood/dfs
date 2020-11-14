@@ -59,6 +59,8 @@
 @import "lib/components/forms"; // Depends on: breakpoint
 @import "lib/components/tabs";
 @import "lib/components/modals"; // Depends on: button
+@import "lib/components/logos"; // Depends on: breakpoint
+@import "lib/components/navbar"; // Depends on: breakpoint
 
 // DEBUG
 // Not for production!

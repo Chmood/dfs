@@ -35,8 +35,7 @@ input[type="button"] {
             cursor: pointer;
             background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
 
-            // min-height: 4rem; // 36
-            padding: 1.2rem; // Maginc value!
+            padding: $btn-padding; // Magic value!
             border: none;
             border-radius: $btn-border-radius;
             color: $body-color-base;
@@ -90,25 +89,25 @@ input[type="button"] {
 
         @else if $mod == "xs" {
             padding: 0.8rem;
-            min-height: 2.8rem;
+            // min-height: 2.8rem;
             font-size: $font-size-smaller;
         }
 
         @else if $mod == "sm" {
             padding: 1rem;
-            min-height: 3.4rem;
+            // min-height: 3.4rem;
             font-size: $font-size-small;
         }
 
         @else if $mod == "lg" {
             padding: 1.4rem;
-            min-height: 4.8rem;
+            // min-height: 4.8rem;
             font-size: $font-size-big;
         }
 
         @else if $mod == "xl" {
             padding: 1.6rem;
-            min-height: 5.6rem;
+            // min-height: 5.6rem;
             font-size: $font-size-bigger;
         }
 
@@ -396,6 +395,7 @@ input[type="button"] {
 .btn-hollow {
     background-color: transparent;
     border: $btn-border-size-hollow solid;
+    padding: calc(#{$btn-padding} - #{$btn-border-size-hollow } * 2); // Magic value!
 
     &:not(:disabled) {
         @include hocus() {

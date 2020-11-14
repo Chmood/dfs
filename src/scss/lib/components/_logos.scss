@@ -1,0 +1,36 @@
+/*******************************************************************************
+ * LOGOS
+ * Path: lib/components/_logos.scss
+ ******************************************************************************/
+
+.logo {}
+
+.logo--mobile {
+    height: $height-logo-mobile;
+
+    @include bp($bp-logo-tablet) {
+        display: none;
+    }
+}
+
+.logo--tablet {
+    height: $height-logo-tablet;
+    display: none;
+
+    @include bp($bp-logo-tablet) {
+        display: initial;
+    }
+
+    @include bp($bp-logo-desktop) {
+        display: none;
+    }
+}
+
+.logo--desktop {
+    height: $height-logo-desktop;
+    display: none;
+
+    @include bp($bp-logo-desktop) {
+        display: initial;
+    }
+}

@@ -1,0 +1,114 @@
+/*******************************************************************************
+ * NAVBAR
+ * Path: lib/components/_navbar.scss
+ ******************************************************************************/
+
+// NAVBAR
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-header {}
+
+.navbar-body {
+    margin-left: auto;
+}
+
+.navbar-footer {}
+
+
+// Logo
+
+.navbar-logo {
+    display: block;
+    margin-right: $gutter;
+}
+
+// NAVBAR MENU
+
+.navbar-menu {}
+
+.navbar-menu--mobile {}
+
+.navbar-menu--desktop {
+
+    display: none;
+    margin-right: $gutter-quarter;
+
+    @include bp($bp-expanded-menu) {
+        display: block;
+    }
+}
+
+// MENU
+
+/*ul*/.menu {
+    @include reset-list();
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*li*/.menu-item {
+    display: block; // For buttons
+    @include h-margin($gutter-eighth);
+
+    // Item horizontal margin tweaks
+    .navbar-menu--mobile &:first-child { margin-left: 0; }
+    .navbar-menu--mobile &:last-child { margin-right: 0; }
+
+    .navbar-menu--desktop &:first-child { margin-left: 0; }
+    .navbar-menu--desktop &:last-child { margin-right: 0; }
+
+    @include bp($bp-expanded-menu) {
+
+        &.menu-item--hamburger {
+            display: none;
+        }
+
+        // The hidden hamburger is no longer the last item
+        // so we reset penultimate item margin also
+        .navbar-menu--mobile &:nth-last-child(2) { margin-right: 0; }
+    }
+}
+
+/*a,button*/.menu-item-link {
+    display: flex;
+    
+    &.btn {
+    }
+    
+    &:not(.btn) {
+        padding: $gutter-quarter;
+        color: $color-secondary;
+        
+        > span {
+            position: relative;
+
+            // Hover FX: animated underline
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 2px;
+                width: 100%;
+                bottom: -0.4rem;
+                background-color: currentColor;
+                transform-origin: 0 0;
+                transform: scaleX(0);
+                transition: all 0.25s;
+            }
+        
+            @include hocus() {
+                color: $color-secondary;
+        
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}

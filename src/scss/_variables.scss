@@ -42,7 +42,9 @@ $breakpoints: (
 ) !default;
 
 // The breakpoint at which starts the desktop layout
-$expanded: "md" !default;
+$bp-expanded: "md" !default;
+// The breakpoint at which the desktop menu is shown
+$bp-expanded-menu: "md" !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -221,6 +223,8 @@ $icon-sizes: (
 
 // BUTTONS
 
+$btn-padding: 1.2rem; // Magic value!
+
 $btn-font-weight: $font-weight-semibold !default;
 $btn-text-transform: uppercase !default;
 $btn-border-radius: $border-radius-base !default;
@@ -260,6 +264,15 @@ $footer-color: white !default;
 $post-footer-v-padding: $gutter !default;
 $post-footer-bg-color: $color-gray-darker !default;
 $post-footer-color: white !default;
+
+// LOGOS
+
+$height-logo-mobile: 3.2rem;
+$height-logo-tablet: 4.0rem;
+$height-logo-desktop: 7.6rem;
+
+$bp-logo-tablet: 'xs';
+$bp-logo-desktop: 'md';
 
 // CHOICES JS (???)
 
