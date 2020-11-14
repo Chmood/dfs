@@ -1,9 +1,10 @@
 /*******************************************************************************
- * foo.js
+ * FOO
+ * Path: lib/foo.js
  ******************************************************************************/
 
 const foo = (() => {
-    console.log("lib/foo.js is loaded")
+    console.log("* lib/foo.js is loaded")
 })()
  
 export default foo

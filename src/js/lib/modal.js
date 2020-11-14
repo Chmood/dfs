@@ -1,5 +1,6 @@
 /*******************************************************************************
- * modal.js
+ * MODAL
+ * Path: lib/modal.js
  ******************************************************************************/
 
 // Focus trap (see: https://github.com/focus-trap/focus-trap)
@@ -101,7 +102,7 @@ const modal = (() => {
         }
     })
 
-    console.log("lib/modal.js is loaded")
+    console.log("* lib/modal.js is loaded")
 })()
  
 export default modal

@@ -1,13 +1,17 @@
 # TODO
 
-- [ ] **GLOBAL**
+- **GLOBAL**
+
+- **STYLEGUIDE**
+  - Documenter la grille, les breakpoints, $gutter...
   - Exemples de code + Prism.js dans le styleguide
 
-- [ ] **BUILD**
+- **BUILD**
   - Fix Browsersync!
+  - [BUG] Favicons from `manifest.json` missing / 404 (`assets/` in paths)
   - Cachebusting en prod (hash à la fin des noms de fichiers) => voir selon CMS
 
-- [ ] **CSS**
+- **CSS**
   - _COMPONENTS_
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox full SVG [???]
@@ -26,51 +30,13 @@
     - @mixins : background-cover() ?
     - GSAP ? / parallax ? / Lightbox ? / carousel (Owl needs jQuery!) ?
 
-- [ ] **JS**
+- **JS**
   - Fichier de config pour eslint (à définir ensemble)
   - Utiliser jQuery ? (pour Select2, ou Owl Carousel par exemple)
   - _COMPONENTS_
-    - Porter `tabs.js` + accordions
+    - Porter `accordions.js` (sur le modèle de `tabs.js`)
     - Throttle et debounce helpers pour les promises
     - Scroll watcher ? (scroll-to-top button etc...)
 
-- [ ] **ASSETS**
+- **ASSETS**
   - Icones : prévoir un set minimal ("fermer", "hamburger"...)
-
-
-# NOTES
-
-## Bootstrap 4
-
-bootstrap.min.css: 145kB
-
-* reboot.css (comes after normalize.css, improves element base styles)
-* breakpoints media queries for "min", "max", "only" and "range"
-* grid & layout:
-  * same-sizing columns: (ex: `.col { flex-basis: 0; flex-grow: 1; }`)
-  * fixed-sizing columns: flex-basis + max-width (+ flex-grow: 0;) (ex: `.col-6`)
-  * natural-sizing columns: (ex: `.col-auto { flex: 0 0 auto; width: auto; max-width: none; }`)
-  * full-width class helper: `w-100 { width: 100% !important; }`
-  * display helpers: [https://getbootstrap.com/docs/4.0/utilities/display/] (no more `.visible-md` or `.hidden-xl`) + visibility helpers (`.visible` & `.invisible`)
-  * responsive re-ordering classes: (ex: `.order-12 { order: 12; }`, `.order-first { order: -1; }`, `.order-last { order: 13; }`...)
-  * offset class are left margin based
-  * auto margin left/right classes (no need for spacer col, no flex-grow)
-* content:
-  * native font stack: [https://getbootstrap.com/docs/4.0/content/reboot/#native-font-stack]
-  * responsive text-align helpers
-  * ellipsis with `.text-truncate`
-  * forms:
-    * multiple sizes for inputs, labels...
-    * `.form-group` on fieldsets or simple divs (flex layout, block or inline)
-    * prefix and suffix: multiple, simple text and buttons, on text inputs and selects
-  * pagination, breadcrumbs
-* components:
-  * poppper.js for dropdowns dynamic positioning and viewport detection
-  * tabs
-  * accordions (with `collapse.js`)
-  * modals: 
-    * ARIA:
-      * `role="dialog"`, `aria-hidden="true"` and `aria-labelledby="..."` (referencing the modal title) on modal parent element (the overlay)
-      * ` role="document"` on child element (the modal itself)
-  * scrollspy
-

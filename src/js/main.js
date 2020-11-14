@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 
 /*******************************************************************************
- * main.js
- * Webpack main entry file
+ * MAIN
+ * Path: main.js
  ******************************************************************************/
+
+// Webpack main entry file
 
 import assets from "./assets"
 

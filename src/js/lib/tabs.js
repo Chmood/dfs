@@ -1,5 +1,6 @@
 /*******************************************************************************
- * tabs.js
+ * TABS
+ * Path: lib/tabs.js
  ******************************************************************************/
 
 const tabs = (() => {
@@ -43,7 +44,7 @@ const tabs = (() => {
         })
     })
 
-    console.log("tabs.js is loaded")
+    console.log("* lib/tabs.js is loaded")
 })()
 
 export default tabs

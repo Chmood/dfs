@@ -1,11 +1,11 @@
 /*******************************************************************************
- * app.js
- * Entrypoint for custom, project-specific JavaScript code
+ * APP
+ * Path: app/app.js
  ******************************************************************************/
 
 const app = (() => {
-
-    // Custom code goes here...
+    
+    // The entrypoint for custom, project-specific JavaScript code
 
     console.log("app/app.js is loaded")
 })()

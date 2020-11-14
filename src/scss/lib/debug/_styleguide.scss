@@ -1,5 +1,7 @@
-////////////////////////////////////////////////////////////////////////////////
-// STYLEGUIDE
+/*******************************************************************************
+ * STYLEGUIDE
+ * Path: lib/debug/_styleguide.scss
+ ******************************************************************************/
 
 // Color blocks
 
@@ -122,7 +124,7 @@
 
 .styleguide-tabs-contents {
     margin-bottom: $gutter;
-    
+
     .tab-content {
         padding: $gutter;
         background-color: $color-gray-lightest;

@@ -1,7 +1,11 @@
 /*******************************************************************************
- * assets.js
- * Import and require all assets (CSS, images, sprites...)
+ * ASSETS
+ * Path: assets.js
  ******************************************************************************/
+
+// Import or require all assets (CSS, images, sprites...)
+
+console.log("main.js has started loading...")
 
 // Import Normalize CSS
 // import "../../node_modules/normalize.css/normalize.css"

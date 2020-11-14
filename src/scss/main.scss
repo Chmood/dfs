@@ -1,9 +1,14 @@
 /*******************************************************************************
  *******************************************************************************
+ *
  * DFS - DIATEM FRONT-END SKELETON
- * 
- * main.scss
+ *
  *******************************************************************************
+ ******************************************************************************/
+
+/*******************************************************************************
+ * MAIN
+ * Path: main.scss
  ******************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +25,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURATION VARIABLES
 //
-// Note: variables definition need (and thus @import) the following core modules:
+// Note: variables definition need (and @import) the following core modules:
 // * "lib/base/colors"
 // * "lib/base/gutter"
 
@@ -52,16 +57,14 @@
 @import "lib/components/buttons";
 @import "lib/components/type"; // Depends on: breakpoints, tools
 @import "lib/components/forms"; // Depends on: breakpoint
-@import "lib/components/tabs"; // Depends on: ???
-@import "lib/components/modal"; // Depends on: button
+@import "lib/components/tabs";
+@import "lib/components/modals"; // Depends on: button
 
 // DEBUG
+// Not for production!
 
-@import "lib/debug/debug"; // Not for production!
-
-// DEMO
-
-@import "styleguide"; // Not for production!
+@import "lib/debug/debug"; 
+@import "lib/debug/styleguide";
 
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOM STYLES

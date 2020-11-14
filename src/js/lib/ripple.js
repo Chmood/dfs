@@ -1,5 +1,6 @@
 /*******************************************************************************
- * ripple.js
+ * RIPPLE
+ * Path: lib/ripple.js
  ******************************************************************************/
 
 const ripple = (() => {
@@ -26,7 +27,7 @@ const ripple = (() => {
         $button.addEventListener("click", createRipple)
     }
 
-    console.log("ripple.js is loaded")
+    console.log("* lib/ripple.js is loaded")
 })()
 
 export default ripple

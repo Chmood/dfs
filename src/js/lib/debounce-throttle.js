@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * DEBOUNCE THROTTLE
+ * Path: lib/debounce-throttle.js
+ ******************************************************************************/
+
 /**
  * Debounce function
  * Use inDebounce to maintain internal reference of timeout to clear

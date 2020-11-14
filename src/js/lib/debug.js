@@ -1,8 +1,9 @@
-import { throttle } from "./debounce-throttle"
-
 /*******************************************************************************
- * debug.js
+ * DEBUG
+ * Path: lib/debug.js
  ******************************************************************************/
+
+import { throttle } from "./debounce-throttle"
 
 const debug = (() => {
 
@@ -19,7 +20,7 @@ const debug = (() => {
     window.onresize = updateDebugItemsScreenWidth
     updateDebugItemsScreenWidth()
 
-    console.log("lib/debug.js is loaded")
+    console.log("* lib/debug.js is loaded")
 })()
  
 export default debug

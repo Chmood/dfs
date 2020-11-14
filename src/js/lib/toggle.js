@@ -1,5 +1,6 @@
 /*******************************************************************************
- * toggle.js
+ * TOGGLE
+ * Path: lib/toggle.js
  ******************************************************************************/
 
 const toggle = (() => {
@@ -26,7 +27,7 @@ const toggle = (() => {
         })
     })
 
-    console.log("toggler.js is loaded")
+    console.log("* lib/toggle.js is loaded")
 })()
 
 export default toggle
