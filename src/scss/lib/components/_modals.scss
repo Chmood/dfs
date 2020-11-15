@@ -13,13 +13,14 @@
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, calc(-50vh - 100%), 0);
+    opacity: 0;
     max-width: calc(100vw - #{$gutter});
     max-height: calc(100vh - #{$gutter});
     border: none; // Reset default style
     padding: 0; // Reset default style
     margin: 0; // Reset "auto" default style
     overflow: hidden;
-    transition: transform 0.5s;
+    transition: all 0.5s;
 
     @include bp('xs') {
         max-width: calc(100vw - #{$gutter-double});
@@ -49,6 +50,7 @@
     // Opened modal
     /*body*/.has-modal &[open] {
         transform: translate3d(-50%, -50%, 0);
+        opacity: 1;
         @include shadow(5);
     }
 }
