@@ -6,7 +6,7 @@
 // MODAL
 
 .modal {
-    z-index: 40000;
+    z-index: $z-index-modal;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -101,38 +101,4 @@
 
 .modal__btn-dismiss {
     @include btn();
-}
-
-// OVERLAY
-
-// No page scrolling when overlay is active
-/*body*/.has-overlay {
-    overflow-y: hidden;
-}
-
-.overlay {
-    z-index: 30000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.125) 2px,
-        rgba(0, 0, 0, 0.125) 4px
-    );
-
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.25s;
-    backdrop-filter: blur(3px);
-    pointer-events: none; // Let events pass through
-
-    /*body*/.has-overlay & {
-        opacity: 1;
-        pointer-events: initial; // Allows click on overlay for closing modal
-    }
 }

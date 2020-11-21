@@ -22,7 +22,7 @@ $debug-zone-text-color: chartreuse;
     right: 0;
     @include h-padding($gutter-quarter);
     background-color: $debug-zone-background;
-    z-index: 100000;
+    z-index: $z-index-debug;
 }
 
 .debug-zone__item {

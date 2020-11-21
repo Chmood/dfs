@@ -93,8 +93,7 @@ const modal = (() => {
         $modals.forEach($modal => closeModal($modal))
     })
 
-    // Closing all modals when overlay is clicked
-    // TODO: only close active modal, remove keyboard binding afterwards
+    // Closing all modals when escape key is pressed
 
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {

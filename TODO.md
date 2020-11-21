@@ -2,10 +2,13 @@
 
 ## BUGS
 
+- Icons: too small in default button
 - Favicons from `manifest.json` missing / 404 (`assets/` in paths)
 - Fix Browsersync!
 - Button inheritance: using @btn mixin compared to .btn classes => classes should win
-- Ripple FX : make keyboard click (enter key) pop from the center of the element (instead of top left corner)
+- Ripple FX : 
+  - make keyboard click (enter key) pop from the center of the element (instead of top left corner)
+  - ripple in sticky header navbar only works when no scroll
 
 ## TODO
 
@@ -23,17 +26,19 @@
     - Formulaires (`_forms.scss`) (WIP...)
       - radio / checkbox full SVG [???]
     - `_buttons.scss` : 
-      - refactor du modifieur `hollow` (semble complexe) [???]
+      - `.btn-bg-grow` : dark variants
+      - refactor du modifieur `hollow` (won't-do: semble complexe) [???]
     - LAYOUT :
-      - `navbar` (mobile and desktop) [???]
+      - `navbar` (mobile and desktop) [WIP]
     - Others :
       - Breadcrumbs ?
       - Pagination ?
       - Social icons ?
+      - Dropdowns (for navbar) ?
   - MISC
-    - z-index scale
     - @mixins : background-cover() ?
     - GSAP ? / parallax ? / Lightbox ? / carousel (Owl needs jQuery!) ?
+    - transition easings ?
 
 - **JS**
   - Fichier de config pour eslint (à définir ensemble)
@@ -44,4 +49,4 @@
     - Scroll watcher ? (scroll-to-top button etc...)
 
 - **ASSETS**
-  - Icones : prévoir un set minimal ("fermer", "hamburger"...)
+  - Icones : prévoir un set minimal ("fermer", "hamburger", "search", arrows, carrets...)

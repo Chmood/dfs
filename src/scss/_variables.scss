@@ -237,6 +237,14 @@ $btn-color-active: false !default; // Lighter background on hover and focus
 
 $code-border-radius: $border-radius-base !default;
 
+// Z-INDEX
+
+$z-index-sticky: 10000;
+$z-index-panel: 20000;
+$z-index-overlay: 30000;
+$z-index-modal: 40000;
+$z-index-debug: 100000;
+
 // HEADER AND FOOTER
 
 // Header
