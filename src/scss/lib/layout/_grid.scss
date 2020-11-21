@@ -4,11 +4,6 @@
  ******************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////
-// VARIABLES
-
-$n-children-max: 12 !default; // Max number of columns
-
-////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS
 
 // FRAKTION
@@ -131,30 +126,33 @@ $n-children-max: 12 !default; // Max number of columns
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-/* ROW */
-.row { @include row(); }
+@if $generate_classes and $generate-grid-classes {
 
-$mods: "vertical", "double-gutter", "half-gutter", "quarter-gutter", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
+	/* ROW */
+	.row { @include row(); }
 
-@each $mod in $mods {
-	.row--#{$mod} { @include row($mod); }
-}
+	$mods: "vertical", "double-gutter", "half-gutter", "quarter-gutter", "no-gutter", "no-wrap", "auto-size", "top", "middle", "bottom",	"left", "center", "right", "space-between", "space-around", "space-evenly", "fit", "fill", "full";
 
-/* COL */
-.col { @include column(); }
+	@each $mod in $mods {
+		.row--#{$mod} { @include row($mod); }
+	}
 
-$mods: "top", "middle", "bottom", "fit", "fill", "full";
+	/* COL */
+	.col { @include column(); }
 
-@each $mod in $mods {
-	.col--#{$mod} { @include column($mod); }
-}
+	$mods: "top", "middle", "bottom", "fit", "fill", "full";
 
-@for $i from 1 through $n-children-max {
-	.col-#{$i} { @include colSize($n-children-max, $i); }
-}
+	@each $mod in $mods {
+		.col--#{$mod} { @include column($mod); }
+	}
 
-@each $breakpoint-name, $breakpoint-width in $breakpoints {
 	@for $i from 1 through $n-children-max {
-		.col-#{$breakpoint-name}-#{$i} { @include col($breakpoint-name, $i); }
+		.col-#{$i} { @include colSize($n-children-max, $i); }
+	}
+
+	@each $breakpoint-name, $breakpoint-width in $breakpoints {
+		@for $i from 1 through $n-children-max {
+			.col-#{$breakpoint-name}-#{$i} { @include col($breakpoint-name, $i); }
+		}
 	}
 }

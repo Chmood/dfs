@@ -4,29 +4,6 @@
  ******************************************************************************/
 
 ////////////////////////////////////////////////////////////////////////////////
-// CONFIGURATION VARIABLES
-
-$generate-color-helper-classes: true; // Generate helper classes?
-
-// Base palette
-$color-primary: #61C5E8 !default;
-$color-secondary: #ED6F30 !default;
-$color-accent: #80BC49 !default;
-$color-gray: #888 !default;
-
-// Shading factors
-$color-variation-ratio-less: 20% !default;
-$color-variation-ratio-base: 45% !default;
-$color-variation-ratio-more: 65% !default;
-$color-variation-ratio-most: 85% !default;
-
-// "Universal" colors
-$color-error: #dc3545 !default;
-$color-warning: #ffc107 !default;
-$color-info: #17a2b8 !default;
-$color-success: #28a745 !default;
-
-////////////////////////////////////////////////////////////////////////////////
 // COLOR SHADES COMPUTATION
 
 // Computed "automatic" color shades, and gray scale
@@ -71,7 +48,7 @@ $color-gray-lightest: mix(white, $color-gray, $color-variation-ratio-most);
 
 // COLOR HELPER CLASSES
 
-@if $generate-color-helper-classes {
+@if $generate_classes and $generate-color-classes {
 	
 	// COLOR CLASSES
 

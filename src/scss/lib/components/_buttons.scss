@@ -298,7 +298,7 @@ input[type="button"] {
                 }
             }
 
-            &.btn-default {}
+            // &.btn-default {}
 
             &.btn-black {
                 &::before {
@@ -345,195 +345,198 @@ input[type="button"] {
 
 // BUTTON CLASSES
 
-.btn {
-    @include btn();
-}
+@if $generate_classes and $generate-buttons-classes {
 
-// BUTTON SIZES
-
-.btn-xs {
-    @include btn("xs");
-}
-.btn-sm {
-    @include btn("sm");
-}
-.btn-lg {
-    @include btn("lg");
-}
-.btn-xl {
-    @include btn("xl");
-}
-
-// BUTTONS COLORS
-
-.btn-default {
-    @include btn("default");
-}
-
-.btn-primary {
-    @include btn("primary");
-}
-.btn-secondary {
-    @include btn("secondary");
-}
-.btn-accent {
-    @include btn("accent");
-}
-
-.btn-black {
-    @include btn("black");
-}
-.btn-gray {
-    @include btn("gray");
-}
-.btn-white {
-    @include btn("white");
-}
-
-// HOLLOW BUTTONS
-// TODO: into the mixin too!!!
-
-.btn-hollow {
-    background-color: transparent;
-    border: $btn-border-size-hollow solid;
-    padding: calc(#{$btn-padding} - #{$btn-border-size-hollow } * 2); // Magic value!
-
-    &:not(:disabled) {
-        @include hocus() {
-            @include shadow(0);
-        }
+    .btn {
+        @include btn();
     }
 
-    &.btn-default {
-        color: $color-gray-light;
-        border-color: $color-gray-light;
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: $color-gray-light;
-                color: black;
-            }
+    // BUTTON SIZES
 
-            &:active {
-                background-color: $color-gray-lightest;
-            }
-        }
+    .btn-xs {
+        @include btn("xs");
     }
-    &.btn-primary {
-        color: $color-primary;
-        border-color: $color-primary;
+    .btn-sm {
+        @include btn("sm");
+    }
+    .btn-lg {
+        @include btn("lg");
+    }
+    .btn-xl {
+        @include btn("xl");
+    }
+
+    // BUTTONS COLORS
+
+    .btn-default {
+        @include btn("default");
+    }
+
+    .btn-primary {
+        @include btn("primary");
+    }
+    .btn-secondary {
+        @include btn("secondary");
+    }
+    .btn-accent {
+        @include btn("accent");
+    }
+
+    .btn-black {
+        @include btn("black");
+    }
+    .btn-gray {
+        @include btn("gray");
+    }
+    .btn-white {
+        @include btn("white");
+    }
+
+    // HOLLOW BUTTONS
+    // TODO: into the mixin too!!!
+
+    .btn-hollow {
+        background-color: transparent;
+        border: $btn-border-size-hollow solid;
+        padding: calc(#{$btn-padding} - #{$btn-border-size-hollow } * 2); // Magic value!
 
         &:not(:disabled) {
             @include hocus() {
-                background-color: $color-primary;
-                color: white;
+                @include shadow(0);
             }
+        }
 
-            &:active {
-                background-color: $color-primary-lightest;
+        &.btn-default {
+            color: $color-gray-light;
+            border-color: $color-gray-light;
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-gray-light;
+                    color: black;
+                }
+
+                &:active {
+                    background-color: $color-gray-lightest;
+                }
+            }
+        }
+        &.btn-primary {
+            color: $color-primary;
+            border-color: $color-primary;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-primary;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-primary-lightest;
+                }
+            }
+        }
+        &.btn-secondary {
+            color: $color-secondary;
+            border-color: $color-secondary;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-secondary;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-secondary-lightest;
+                }
+            }
+        }
+        &.btn-accent {
+            color: $color-accent;
+            border-color: $color-accent;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-accent;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-accent-lightest;
+                }
+            }
+        }
+        &.btn-black {
+            color: black;
+            border-color: black;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: black;
+                    color: $color-gray-lighter;
+                }
+
+                &:active {
+                    background-color: $color-gray;
+                }
+            }
+        }
+        &.btn-gray {
+            color: $color-gray;
+            border-color: $color-gray;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: $color-gray;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: $color-gray-lightest;
+                }
+            }
+        }
+        &.btn-white {
+            color: white;
+            border-color: white;
+
+            &:not(:disabled) {
+                @include hocus() {
+                    background-color: white;
+                    color: $color-gray-darker;
+                }
             }
         }
     }
-    &.btn-secondary {
-        color: $color-secondary;
-        border-color: $color-secondary;
 
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: $color-secondary;
-                color: white;
-            }
+    // ROUNDED BUTTONS
 
-            &:active {
-                background-color: $color-secondary-lightest;
-            }
-        }
+    .btn-round {
+        @include btn("round");
     }
-    &.btn-accent {
-        color: $color-accent;
-        border-color: $color-accent;
 
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: $color-accent;
-                color: white;
-            }
+    // BLOCK BUTTONS
 
-            &:active {
-                background-color: $color-accent-lightest;
-            }
-        }
+    .btn-block {
+        @include btn("block");
     }
-    &.btn-black {
-        color: black;
-        border-color: black;
 
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: black;
-                color: $color-gray-lighter;
-            }
+    // WRAP BUTTONS (multiline)
 
-            &:active {
-                background-color: $color-gray;
-            }
-        }
+    .btn-wrap {
+        @include btn("wrap");
     }
-    &.btn-gray {
-        color: $color-gray;
-        border-color: $color-gray;
 
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: $color-gray;
-                color: white;
-            }
+    // CARET BUTTONS
 
-            &:active {
-                background-color: $color-gray-lightest;
-            }
-        }
+    .btn-caret {
+        @include btn("caret");
     }
-    &.btn-white {
-        color: white;
-        border-color: white;
 
-        &:not(:disabled) {
-            @include hocus() {
-                background-color: white;
-                color: $color-gray-darker;
-            }
-        }
+    // BG GROW FX
+
+    .btn-bg-grow {
+        @include btn("bg-grow");
     }
-}
-
-// ROUNDED BUTTONS
-
-.btn-round {
-    @include btn("round");
-}
-
-// BLOCK BUTTONS
-
-.btn-block {
-    @include btn("block");
-}
-
-// WRAP BUTTONS (multiline)
-
-.btn-wrap {
-    @include btn("wrap");
-}
-
-// CARET BUTTONS
-
-.btn-caret {
-    @include btn("caret");
-}
-
-// BG GROW FX
-
-.btn-bg-grow {
-    @include btn("bg-grow");
 }
 
 // ICONS IN BUTTONS

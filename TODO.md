@@ -39,6 +39,10 @@
     - @mixins : background-cover() ?
     - GSAP ? / parallax ? / Lightbox ? / carousel (Owl needs jQuery!) ?
     - transition easings ?
+    - generate classes boolean for:
+      - forms
+      - fixed-ratio (?)
+      - layout (?)
 
 - **JS**
   - Fichier de config pour eslint (à définir ensemble)

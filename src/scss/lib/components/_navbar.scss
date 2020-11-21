@@ -3,144 +3,68 @@
  * Path: lib/components/_navbar.scss
  ******************************************************************************/
 
-// NAVBAR
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
 
-.navbar {
-    display: flex;
-    align-items: center;
-}
+@if $generate_classes and $generate-navbars-classes {
 
-.navbar-header {}
+    // NAVBAR
 
-.navbar-body {
-    // Push the menu to the right
-    margin-left: auto;
-}
-
-.navbar-footer {}
-
-
-// NAVBAR LOGO
-
-.navbar-logo {
-    display: block;
-    margin-right: $gutter;
-}
-
-// NAVBAR MENU
-
-.navbar-menu {}
-
-.navbar-menu--mobile {}
-
-.navbar-menu--desktop {
-    
-    // Mobile main menu
-    @include bp($bp-expanded-menu, true) {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 80vw;
-        max-width: 40rem;
-        height: 100vh;
-        padding: $gutter-half;
-        background-color: $header-bg-color;
-        z-index: $z-index-panel;
-        @include shadow(3);
-        transform: translateX(100%);
-        opacity: 0;
-        transition: all 0.25s;
-
-        /*body*/.panel-menu-expanded & {
-            transform: translateX(0);
-            opacity: 1;
-        }
+    .navbar {
+        display: flex;
+        align-items: center;
     }
-    
-    @include bp($bp-expanded-menu) {
+
+    .navbar-header {}
+
+    .navbar-body {
+        // Push the menu to the right
+        margin-left: auto;
+    }
+
+    .navbar-footer {}
+
+
+    // NAVBAR LOGO
+
+    .navbar-logo {
         display: block;
-        margin-right: $gutter-quarter;
+        margin-right: $gutter;
     }
-}
 
-// MENU
+    // NAVBAR MENU
 
-/*ul*/.menu {
-    @include reset-list();
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    .navbar-menu {}
 
-    .navbar-menu--desktop & {
+    .navbar-menu--mobile {}
 
+    .navbar-menu--desktop {
+        
+        // Mobile main menu
         @include bp($bp-expanded-menu, true) {
-            flex-wrap: wrap;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80vw;
+            max-width: 40rem;
+            height: 100vh;
+            padding: $gutter-half;
+            background-color: $header-bg-color;
+            z-index: $z-index-panel;
+            @include shadow(3);
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.25s;
 
-            > * {
-                flex-basis: 100%;
+            /*body*/.panel-menu-expanded & {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
-    }
-}
-
-/*li*/.menu-item {
-    display: block; // For buttons
-    @include h-margin($gutter-eighth);
-
-    // Item horizontal margin tweaks
-    .navbar-menu--mobile &:first-child { margin-left: 0; }
-    .navbar-menu--mobile &:last-child { margin-right: 0; }
-
-    .navbar-menu--desktop &:first-child { margin-left: 0; }
-    .navbar-menu--desktop &:last-child { margin-right: 0; }
-
-    @include bp($bp-expanded-menu) {
-
-        &.menu-item--panel-menu-open,
-        &.menu-item--panel-menu-close {
-            display: none;
-        }
-
-        // The hidden hamburger is no longer the last item
-        // so we reset penultimate item margin also
-        .navbar-menu--mobile &:nth-last-child(2) { margin-right: 0; }
-    }
-}
-
-/*a,button*/.menu-item-link {
-    display: flex;
-    
-    &.btn {}
-    
-    &:not(.btn) {
-        padding: $gutter-quarter;
-        color: $color-secondary;
         
-        > span {
-            position: relative;
-            text-transform: uppercase;
-
-            // Hover FX: animated underline
-            &::after {
-                content: "";
-                position: absolute;
-                display: block;
-                height: 2px;
-                width: 100%;
-                bottom: -0.4rem;
-                background-color: currentColor;
-                transform-origin: 0 0;
-                transform: scaleX(0);
-                transition: all 0.25s;
-            }
-        
-            @include hocus() {
-                color: $color-secondary;
-        
-                &::after {
-                    transform: scaleX(1);
-                }
-            }
+        @include bp($bp-expanded-menu) {
+            display: block;
+            margin-right: $gutter-quarter;
         }
     }
 }

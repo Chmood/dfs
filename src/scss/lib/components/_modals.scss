@@ -2,10 +2,11 @@
  * MODALS
  * Path: lib/components/_modals.scss
  ******************************************************************************/
-
-// MODAL
-
-.modal {
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ // MIXINS
+ 
+ @mixin modal() {
     z-index: $z-index-modal;
     display: flex;
     flex-direction: column;
@@ -21,32 +22,32 @@
     margin: 0; // Reset "auto" default style
     overflow: hidden;
     transition: all 0.5s;
-
+    
     @include bp('xs') {
         max-width: calc(100vw - #{$gutter-double});
         max-height: calc(100vh - #{$gutter-double});
-
+    
         &.modal-sm {
             max-width: 42rem;
         }
     }
-
+    
     @include bp('sm') {
         max-height: 75vh;
         max-width: 64rem;
-
+    
         &:not(.modal-sm) {
             max-width: 64rem;
         }
     }
-
+    
     @include bp('md') {
-
+    
         &.modal-lg {
             max-width: 96rem;
         }
     }
-
+    
     // Opened modal
     /*body*/.has-modal &[open] {
         transform: translate3d(-50%, -50%, 0);
@@ -55,50 +56,62 @@
     }
 }
 
-// Modal layout
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
 
-.modal__header {
-    display: flex;
-    align-items: flex-start;
-}
+@if $generate_classes and $generate-modals-classes {
 
-.modal__footer {
-    padding: $gutter;
-    text-align: center;
-}
+    // MODAL
 
-.modal__body {
-    @include h-padding($gutter);
-    overflow: auto;
-}
-
-// Modal title
-
-.modal__title {
-    flex-grow: 1;
-    padding: $gutter;
-
-    &.h3 {
-        margin-bottom: 0;
+    .modal {
+        @include modal();
     }
-}
 
-// Modal buttons
+    // Modal layout
 
-.modal__btn-close {
-    @include btn();
-    @include btn('round');
-    @include btn('bg-grow');
-    
-    margin-top: 2rem;
-    margin-right: 2rem;
-}
+    .modal__header {
+        display: flex;
+        align-items: flex-start;
+    }
 
-.modal__btn-accept {
-    @include btn();
-    @include btn('primary');
-}
+    .modal__footer {
+        padding: $gutter;
+        text-align: center;
+    }
 
-.modal__btn-dismiss {
-    @include btn();
+    .modal__body {
+        @include h-padding($gutter);
+        overflow: auto;
+    }
+
+    // Modal title
+
+    .modal__title {
+        flex-grow: 1;
+        padding: $gutter;
+
+        &.h3 {
+            margin-bottom: 0;
+        }
+    }
+
+    // Modal buttons
+
+    .modal__btn-close {
+        @include btn();
+        @include btn('round');
+        @include btn('bg-grow');
+        
+        margin-top: 2rem;
+        margin-right: 2rem;
+    }
+
+    .modal__btn-accept {
+        @include btn();
+        @include btn('primary');
+    }
+
+    .modal__btn-dismiss {
+        @include btn();
+    }
 }

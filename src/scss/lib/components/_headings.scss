@@ -1,0 +1,67 @@
+/*******************************************************************************
+ * HEADINGS
+ * Path: lib/components/_headings.scss
+ ******************************************************************************/
+
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
+// Dynamic heading properties list
+$headings-props: ("font-size", "font-weight", "font-family", "text-transform", "line-height", "margin-bottom");
+
+// Heading mixin
+@mixin h($n) {
+    $mixin-error-header: "ERROR in mixin h():";
+
+    // Does the H level exists?
+    @if map-has-key($headings, "h#{$n}") {
+        $h: map-get($headings, "h#{$n}");
+
+        @each $prop in $headings-props {
+            // Does the H level has prop?
+            @if map-has-key($h, $prop) {
+                // Set prop
+                #{$prop}: map-get($h, $prop);
+            } @else {
+                // H level hasn't prop, search in default...
+                $hd: map-get($headings, "default");
+                
+                // Does the default level has prop?
+                @if map-has-key($hd, $prop) {
+                    // Set prop
+                    #{$prop}: map-get($hd, $prop);
+                } @else {
+                    @error '#{$mixin-error-header} unknown h#{$n} property #{$prop}';
+                }
+            }
+        }
+
+    } @else {
+        // H level doesn't exist
+        $h: map-get($headings, "default");
+
+        @each $prop in $headings-props {
+            @if map-has-key($h, $prop) {
+                // Set prop
+                #{$prop}: map-get($h, $prop);
+            } @else {
+                @error '#{$mixin-error-header} unknown default property #{$prop}';
+            }
+        }
+        // @error '#{$mixin-error-header} unknown heading level #{$n}';
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate_classes and $generate-headings-classes {
+
+    // Generate headings style
+    @for $n from 1 through 6 {
+        h#{$n},
+        .h#{$n} {
+            @include h($n);
+        }
+    }
+}

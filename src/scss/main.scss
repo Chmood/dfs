@@ -26,8 +26,8 @@
 // CONFIGURATION VARIABLES
 //
 // Note: variables definition need (and @import) the following core modules:
-// * "lib/base/colors"
-// * "lib/base/gutter"
+// * lib/base/colors
+// * lib/base/gutter
 
 @import "variables"; // Edit this to your need
 
@@ -39,28 +39,31 @@
 @import "lib/base/shadows";
 @import "lib/base/ripple";
 @import "lib/base/tools";
+@import "lib/base/unit-tools";
+// @import "lib/base/color-text-auto";
 
 // LAYOUT
 
-@import "lib/layout/unit-tools";
 @import "lib/layout/breakpoints";
-@import "lib/layout/header-sticky";
-@import "lib/layout/fixed-ratio";
-@import "lib/layout/layout"; // Depends on: unit-tools
-@import "lib/layout/grid"; // Depends on: breakpoints
 @import "lib/layout/container"; // Depends on: unit-tools, breakpoints
 @import "lib/layout/capped-width"; // Depends on: unit-tools, breakpoints
+@import "lib/layout/layout"; // Depends on: unit-tools
+@import "lib/layout/grid"; // Depends on: breakpoints
+@import "lib/layout/header-sticky";
+@import "lib/layout/fixed-ratio";
 
 // COMPONENTS
 
 @import "lib/components/icons";
 @import "lib/components/buttons";
 @import "lib/components/type"; // Depends on: breakpoints, tools
+@import "lib/components/headings";
 @import "lib/components/forms"; // Depends on: breakpoint
 @import "lib/components/tabs";
 @import "lib/components/overlay";
 @import "lib/components/modals"; // Depends on: button
 @import "lib/components/logos"; // Depends on: breakpoint
+@import "lib/components/menus"; // Depends on: breakpoint
 @import "lib/components/navbar"; // Depends on: breakpoint
 
 // DEBUG

@@ -3,14 +3,12 @@
  * Path: lib/components/_overlay.scss
  ******************************************************************************/
 
+////////////////////////////////////////////////////////////////////////////////
+// MIXINS
+
 // OVERLAY
 
-// No page scrolling when overlay is active
-/*body*/.has-overlay {
-    overflow-y: hidden;
-}
-
-.overlay {
+@mixin overlay() {
     z-index: $z-index-overlay;
     position: fixed;
     top: 0;
@@ -34,5 +32,22 @@
     /*body*/.has-overlay & {
         opacity: 1;
         pointer-events: initial; // Allows click on overlay for closing modal
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CLASSES
+
+@if $generate_classes and $generate-overlay-classes {
+
+    // OVERLAY
+
+    // No page scrolling when overlay is active
+    /*body*/.has-overlay {
+        overflow-y: hidden;
+    }
+
+    .overlay {
+        @include overlay();
     }
 }

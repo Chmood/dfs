@@ -26,25 +26,28 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CLASSES
 
-.container {
-    @include container();
-}
+@if $generate_classes and $generate-containers-classes {
 
-/* CONTAINER */
-// Only applies to fixed-width containers
-.container {
-    @include bp($expanded) {
-        &:not(.container--fluid) {
+    .container {
+        @include container();
+    }
 
-            @each $breakpoint-name, $breakpoint-width in $breakpoints {
-                @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
-                    @include bp($breakpoint-name) {
-                        $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+    /* CONTAINER */
+    // Only applies to fixed-width containers
+    .container {
+        @include bp($bp-expanded-container) {
+            &:not(.container--fluid) {
 
-                        @include container-size($breakpoint-width, $pxPerRem);
+                @each $breakpoint-name, $breakpoint-width in $breakpoints {
+                    @if map-has-key($breakpoints-pixels-per-rem, $breakpoint-name) {
+                        @include bp($breakpoint-name) {
+                            $pxPerRem: map-get($breakpoints-pixels-per-rem, $breakpoint-name);
+
+                            @include container-size($breakpoint-width, $pxPerRem);
+                        }
+                    } @else {
+                        @error 'No $pixels-per-rem value for breakpoint #{$breakpoint-name}';
                     }
-                } @else {
-                    @error 'No $pixels-per-rem value for breakpoint #{$breakpoint-name}';
                 }
             }
         }
