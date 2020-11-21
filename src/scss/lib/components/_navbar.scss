@@ -7,20 +7,20 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .navbar-header {}
 
 .navbar-body {
+    // Push the menu to the right
     margin-left: auto;
 }
 
 .navbar-footer {}
 
 
-// Logo
+// NAVBAR LOGO
 
 .navbar-logo {
     display: block;
@@ -34,12 +34,32 @@
 .navbar-menu--mobile {}
 
 .navbar-menu--desktop {
+    
+    // Mobile main menu
+    @include bp($bp-expanded-menu, true) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80vw;
+        max-width: 40rem;
+        height: 100vh;
+        padding: $gutter-half;
+        background-color: $header-bg-color;
+        z-index: $z-index-panel;
+        @include shadow(3);
+        transform: translateX(100%);
+        opacity: 0;
+        transition: all 0.25s;
 
-    display: none;
-    margin-right: $gutter-quarter;
-
+        /*body*/.panel-menu-expanded & {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
     @include bp($bp-expanded-menu) {
         display: block;
+        margin-right: $gutter-quarter;
     }
 }
 
@@ -50,6 +70,17 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    .navbar-menu--desktop & {
+
+        @include bp($bp-expanded-menu, true) {
+            flex-wrap: wrap;
+
+            > * {
+                flex-basis: 100%;
+            }
+        }
+    }
 }
 
 /*li*/.menu-item {
@@ -65,7 +96,8 @@
 
     @include bp($bp-expanded-menu) {
 
-        &.menu-item--hamburger {
+        &.menu-item--panel-menu-open,
+        &.menu-item--panel-menu-close {
             display: none;
         }
 
@@ -78,8 +110,7 @@
 /*a,button*/.menu-item-link {
     display: flex;
     
-    &.btn {
-    }
+    &.btn {}
     
     &:not(.btn) {
         padding: $gutter-quarter;
@@ -87,6 +118,7 @@
         
         > span {
             position: relative;
+            text-transform: uppercase;
 
             // Hover FX: animated underline
             &::after {

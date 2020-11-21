@@ -270,6 +270,7 @@ input[type="button"] {
             background-color: transparent;
             z-index: +1;
             color: $body-color-base;
+            color: inherit;
 
             &::before {
                 content: "";
@@ -535,19 +536,20 @@ input[type="button"] {
     @include btn("bg-grow");
 }
 
-// BUTTON ICONS
-// May be not needed?
+// ICONS IN BUTTONS
 
-.btn-icon {
-    // height: 1.6rem; // TODO: Magic value!
-    // vertical-align: middle;
-}
-
-// Prevents icon shrink with .btn-wrap and long content
 .btn {
     .icon {
+        // Prevents icon shrink with .btn-wrap and long content
         flex-shrink: 0;
     }
+
+    // .icon-label {
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     transform: translate3d(0%, -25%, 0);
+    // }
 }
 
 // RIPPLE FX
