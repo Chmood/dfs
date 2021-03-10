@@ -50,7 +50,6 @@
   - Fichier de config pour eslint (à définir ensemble)
   - Utiliser jQuery ? (pour Select2, ou Owl Carousel par exemple)
   - _COMPONENTS_
-    - Ré-écrire `scroller.js` sans dépendance jQuery (cf. https://css-tricks.com/snippets/jquery/smooth-scrolling/)
     - Scroll watcher ? (scroll-to-top button etc...)
     - Porter `accordions.js` (sur le modèle de `tabs.js`)
     - Throttle et debounce helpers pour les promises
