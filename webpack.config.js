@@ -180,6 +180,19 @@ module.exports = {
             },
 
             ////////////////////////////////////////
+            // IMAGES
+            { 
+                // test: /\.(png|jpg|jpeg|gif|svg)$/,
+                test: /\.(jpg|jpeg)$/,
+                loader: 'file-loader',
+                options: {
+                    // outputPath: 'img',
+                    publicPath: '../../dist',
+                    name: '[path][name].[ext]',
+                }
+            },
+
+            ////////////////////////////////////////
             // SVG SPRITES
             {
                 test: /img(\/|\\)sprites(\/|\\).*\.svg$/,
@@ -221,7 +234,7 @@ module.exports = {
             [
                 // { from: "img/video/*.*", to: path.resolve(__dirname, dirDist) },
                 // { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
-                { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
+                // { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
                 { from: "fonts/*.*", to: path.resolve(__dirname, dirDist) },
             ],
             {

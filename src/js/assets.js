@@ -7,9 +7,6 @@
 
 console.log("main.js has started loading...")
 
-// Import Normalize CSS
-// import "../../node_modules/normalize.css/normalize.css"
-
 // Import CSS entry point for webpack
 import '../scss/main.scss';
 
