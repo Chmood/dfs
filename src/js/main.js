@@ -16,7 +16,10 @@ import modal from "./lib/modal"
 import tabs from "./lib/tabs"
 import ripple from "./lib/ripple"
 import scroller from "./lib/scroller"
+import keyboard from "./lib/keyboard"
 // import select2 from "./lib/select2"
+
+import slider from "./lib/slider"
 
 // [TODO] Port Skeleton and Lightwords libs here
 
@@ -28,4 +31,4 @@ import debug from "./lib/debug"
 // APP
 import app from "./app/app"
 
-console.log("main.js has finished loading")
+console.log("main.js has finished loading 😁")
