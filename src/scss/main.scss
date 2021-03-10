@@ -66,6 +66,12 @@
 @import "lib/components/menus"; // Depends on: breakpoint
 @import "lib/components/navbar"; // Depends on: breakpoint
 
+@import "lib/components/breadcrumb";
+@import "lib/components/pager";
+
+@import "lib/components/hero";
+@import "lib/components/search";
+
 // DEBUG
 // Not for production!
 

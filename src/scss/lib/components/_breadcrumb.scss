@@ -1,0 +1,27 @@
+.breadcrumb {
+
+    ul {
+        @include reset-list();
+        display: flex;
+        justify-content: left;
+        margin-left: - $gutter-eighth;
+
+        > li {
+
+            > a,
+            > span {
+                display: inline-block;
+                padding: $gutter-eighth;
+            }
+
+            &:not(:last-child) {
+
+                &::after {
+                    content: "/";
+                    display: inline-block;
+                    margin-right: $gutter-eighth;
+                }
+            }
+        }
+    }
+}

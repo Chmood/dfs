@@ -1,0 +1,92 @@
+.section--hero {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.hero-overlay {
+    position: relative;
+    background-color: rgba($color: black, $alpha: 0.66);
+    height: 100%;
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 80vh;
+
+        @include bp('sm') {
+            min-height: 41vw;
+        }
+    }
+
+    .section--hero--realisations & {
+        &::after {
+            @include bp('xs') {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 100%;
+                left: 50%;
+                top: 0;
+            }
+        }
+    }
+}
+
+.hero-content {}
+
+.hero-title {
+    color: white;
+    padding-left: $gutter-quarter;
+    border-left: $gutter-quarter solid $color-primary;
+
+    @include bp('sm') {
+        padding-left: $gutter-half;
+        border-left: $gutter-half solid $color-primary;
+        font-size: 4rem;
+    }
+}
+
+.hero-subtitle {
+
+    @include bp('sm') {
+        font-size: 3.2rem;
+        margin-right: (100% * 2 / 12);
+    }
+}
+
+.hero-intro,
+.hero-subtitle,
+.hero-link {
+    margin-bottom: $gutter;
+    color: white;
+
+    @include bp('sm') {
+        margin-left: (100% * 1 / 12);
+    }
+}
+
+.btn-scroll-to-content {
+    position: absolute;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    border: none;
+    background: none;
+    bottom: $gutter;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+
+    @include bp('sm') {
+        bottom: auto;
+        left: auto;
+        right: $gutter;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

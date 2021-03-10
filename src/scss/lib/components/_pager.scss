@@ -1,0 +1,40 @@
+.pager {
+    margin-bottom: $gutter-double;
+    @include h-padding($gutter-half);
+}
+
+/*ul*/.pager__items {
+    @include reset-list();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: - $gutter-eighth;
+}
+
+/*li*/.pager__item {
+
+    > a {
+        display: block;
+        margin: $gutter-eighth;
+        padding: ($gutter-quarter + $gutter-eighth) $gutter-quarter;
+        min-width: 6rem;
+        // min-height: 6rem;
+        // line-height: 6rem;
+        text-align: center;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        white-space: normal;
+
+        @include hocus() {
+            text-decoration: underline;
+        }
+    }
+    
+    &:not(.is-active) {
+        
+        > a {
+            color: white;
+            background-color: $color-primary;
+        }
+    }
+}
