@@ -17,7 +17,6 @@ function requireAll(r) {
 }
 
 requireAll(require.context("../img/sprites/", true, /\.svg$/))
-// requireAll(require.context("../img/", true, /\.*$/))
 
 const assets = () => {}
 

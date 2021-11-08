@@ -183,12 +183,13 @@ module.exports = {
             // IMAGES
             { 
                 // test: /\.(png|jpg|jpeg|gif|svg)$/,
-                test: /\.(jpg|jpeg)$/,
+                test: /\.(jpg|jpeg|png)$/,
                 loader: 'file-loader',
                 options: {
                     // outputPath: 'img',
                     publicPath: '../../dist',
                     name: '[path][name].[ext]',
+                    emitFile: false,
                 }
             },
 
@@ -235,6 +236,9 @@ module.exports = {
                 // { from: "img/video/*.*", to: path.resolve(__dirname, dirDist) },
                 // { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
                 // { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
+                { from: "img/static/*.*", to: path.resolve(__dirname, dirDist) },
+                // Flat copy, no sub-directories
+                // { from: "img/static/*.*", to: path.resolve(__dirname, dirDist + 'img/[name].[ext]') },
                 { from: "fonts/*.*", to: path.resolve(__dirname, dirDist) },
             ],
             {
