@@ -59,10 +59,17 @@ const modal = (() => {
         $body.classList.remove('has-modal')
         $modal.removeAttribute('open')
 
-        focusTrap.deactivate() // Remove focus trap
-        $lastFocus.focus(); // Restore main page focused element
-    }
+        // Remove focus trap
 
+        if (focusTrap?.deactivate) {
+            focusTrap.deactivate()
+        }
+
+        if ($lastFocus) {
+            $lastFocus.focus(); // Restore main page focused element
+        }
+    }
+    
     // Opening with toggles
 
     $modalToggles.forEach($toggle => $toggle.addEventListener('click', () => {

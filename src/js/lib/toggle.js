@@ -16,14 +16,22 @@ const toggle = (() => {
             [$toggler] // or self by default
 
         // Class name
-        const classname = $toggler.getAttribute("data-toggle-classname") ? 
-            $toggler.getAttribute("data-toggle-classname") : // Get the optional classname
-            defaultActiveClassname // or use "active" by default
+        const classnames = $toggler.getAttribute("data-toggle-classname") ? 
+            $toggler.getAttribute("data-toggle-classname").split(' ') : // Get the optional classname
+            [defaultActiveClassname] // or use "active" by default
         
         $targets.forEach($target => {
+
             $toggler.addEventListener("click", () => {
-                $target.classList.toggle(classname)
+    
+                classnames.forEach(classname => {
+    
+                    $target.classList.toggle(classname)
+    
+                })
+    
             })
+    
         })
     })
 
