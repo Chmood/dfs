@@ -68,7 +68,8 @@ module.exports = {
     // This option controls if and how source maps are generated.
     // See: https://webpack.js.org/configuration/devtool/
 
-    devtool: ENV === 'development' ? 'inline-source-map' : 'none',
+    // devtool: ENV === 'development' ? 'inline-source-map' : 'none',
+    devtool: 'inline-source-map',
 
     ////////////////////////////////////////
     // INPUT
@@ -232,19 +233,19 @@ module.exports = {
 
         // Copy static files
         new CopyWebpackPlugin(
-            [
-                // { from: "img/video/*.*", to: path.resolve(__dirname, dirDist) },
-                // { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
-                // { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
-                { from: "img/static/*.*", to: path.resolve(__dirname, dirDist) },
-                // Flat copy, no sub-directories
-                // { from: "img/static/*.*", to: path.resolve(__dirname, dirDist + 'img/[name].[ext]') },
-                { from: "fonts/*.*", to: path.resolve(__dirname, dirDist) },
-            ],
             {
+                patterns:             [
+                    // { from: "img/video/*.*", to: path.resolve(__dirname, dirDist) },
+                    // { from: "img/favicon/*.*", to: path.resolve(__dirname, dirDist) },
+                    // { from: "img/*.*", to: path.resolve(__dirname, dirDist) },
+                    { from: "img/static/*.*", to: path.resolve(__dirname, dirDist) },
+                    // Flat copy, no sub-directories
+                    // { from: "img/static/*.*", to: path.resolve(__dirname, dirDist + 'img/[name].[ext]') },
+                    // { from: "fonts/*.*", to: path.resolve(__dirname, dirDist) },
+                ],
                 // Copy files in watch mode too (otherwise they will miss from subsequent builds)
                 // Another solution to this is tweaking the clean plugin (see 'cleanStaleWebpackAssets' option)
-                copyUnmodified: true,
+                // copyUnmodified: true,
                 // debug: 'info'
             }
         ),
@@ -265,33 +266,33 @@ module.exports = {
         // Generate CSS stylesheet file (aka extraction)
         new MiniCssExtractPlugin({
             // Options similar to those in webpackOptions.output
-            path: path.resolve(__dirname, `${dirDist}css/`), // Defaults to "dist/css/"
+            filename: path.resolve(__dirname, `${dirDist}css/`), // Defaults to "dist/css/"
             filename: "css/[name].css",
             // chunkFilename: '[id].css',
         }),
 
         // Generate favicons
         // See: https://github.com/jantimon/favicons-webpack-plugin
-        new FaviconsWebpackPlugin({
-            logo: path.resolve(__dirname, `${dirSrc}img/favicon/favicon.svg`),
-            outputPath: '/img/favicon/',
-            mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
-            devMode: 'light', // optional can be 'webapp' or 'light' - 'light' by default
-            cache: true,
-            favicons: {
-                // See: https://github.com/itgalaxy/favicons#usage
-                appName: 'my-app',
-                appDescription: 'My awesome App',
-                developerName: 'Me',
-                developerURL: null, // prevent retrieving from the nearest package.json
-                background: '#ddd',
-                theme_color: '#333',
-                icons: {
-                    coast: false,
-                    yandex: false
-                }
-            }
-        }),
+        // new FaviconsWebpackPlugin({
+        //     logo: path.resolve(__dirname, `${dirSrc}img/favicon/favicon.svg`),
+        //     outputPath: '/img/favicon/',
+        //     mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
+        //     devMode: 'light', // optional can be 'webapp' or 'light' - 'light' by default
+        //     cache: true,
+        //     favicons: {
+        //         // See: https://github.com/itgalaxy/favicons#usage
+        //         appName: 'my-app',
+        //         appDescription: 'My awesome App',
+        //         developerName: 'Me',
+        //         developerURL: null, // prevent retrieving from the nearest package.json
+        //         background: '#ddd',
+        //         theme_color: '#333',
+        //         icons: {
+        //             coast: false,
+        //             yandex: false
+        //         }
+        //     }
+        // }),
 
         // BROWSERSYNC
         new BrowserSyncPlugin({
